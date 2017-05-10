@@ -84,10 +84,10 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.nav_menu:
+
 //                getSupportFragmentManager().beginTransaction()
 //                        .replace(R.id.main_content, new MenuActivity())
 //                        .commit();
-                startActivity(new Intent(this, MenuActivity.class));
                 mDrawerLayout.closeDrawer(GravityCompat.START);
                 return true;
             default:

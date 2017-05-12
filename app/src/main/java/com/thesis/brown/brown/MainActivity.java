@@ -12,6 +12,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.thesis.brown.brown.StoreList.f_store_list;
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     ActionBarDrawerToggle mDrawerToggle;
@@ -44,6 +46,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         };
         mDrawerLayout.setDrawerListener(mDrawerToggle);
         mDrawerToggle.syncState();
+
+
+        Intent i = new Intent(this, f_store_list.class);
+        startActivity(i);
+
     }
 
     @Override

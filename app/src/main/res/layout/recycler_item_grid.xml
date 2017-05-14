@@ -8,17 +8,25 @@
     android:layout_margin="4dp"
     app:cardCornerRadius="4dp">
 
-    <ImageView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_cafe_b"
-        />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/itemTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="15dp"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_cafe_b"
+            android:padding="15dp"
+            />
+
+        <TextView
+            android:id="@+id/itemTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="15dp"/>
+    </LinearLayout>
+
 
 </android.support.v7.widget.CardView>

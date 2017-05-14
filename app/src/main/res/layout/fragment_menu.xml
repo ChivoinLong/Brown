@@ -27,7 +27,7 @@
 
     <android.support.v4.widget.DrawerLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="628dp"
         android:id="@+id/drawer_layout"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
@@ -50,7 +50,6 @@
             app:itemTextColor="#FFF"
             android:id="@+id/nav_view"
             app:menu="@menu/nav_menu">
-
         </android.support.design.widget.NavigationView>
 
     </android.support.v4.widget.DrawerLayout>

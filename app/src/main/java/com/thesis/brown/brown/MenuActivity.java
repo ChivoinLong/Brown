@@ -1,7 +1,6 @@
 package com.thesis.brown.brown;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -20,7 +19,10 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TableLayout;
+
+import com.thesis.brown.brown.fragment.AllFragment;
+import com.thesis.brown.brown.fragment.CategoryFragment;
+import com.thesis.brown.brown.fragment.FeaturedFragment;
 
 import com.thesis.brown.brown.StoreList.MainListStore;
 
@@ -45,7 +47,7 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_menu);
+        setContentView(R.layout.activity_menu);
 
         Toolbar toolbar  = (Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);

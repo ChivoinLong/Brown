@@ -1,25 +1,29 @@
-package com.thesis.brown.brown;
+package com.thesis.brown.brown.fragment;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+
+import com.thesis.brown.brown.R;
+import com.thesis.brown.brown.RecyclerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CategoryFragment extends Fragment {
+/**
+ * Created by Obi-Voin Kenobi on 26-Mar-17.
+ */
 
+public class AllFragment extends Fragment {
     public static final String POSITION_KEY = "FragmentPositionKey";
 
-    public static CategoryFragment newInstance(Bundle args) {
-        CategoryFragment fragment = new CategoryFragment();
+    public static AllFragment newInstance(Bundle args) {
+        AllFragment fragment = new AllFragment();
         fragment.setArguments(args);
         return fragment;
     }
@@ -27,13 +31,11 @@ public class CategoryFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_category, container, false);
-
         RecyclerView recyclerView = (RecyclerView) root.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
-        RecyclerAdapter recyclerAdapter = new RecyclerAdapter(createItemList(50));
+//        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+        RecyclerAdapter recyclerAdapter = new RecyclerAdapter(createItemList(50), null);
         recyclerView.setAdapter(recyclerAdapter);
-
         return root;
     }
 

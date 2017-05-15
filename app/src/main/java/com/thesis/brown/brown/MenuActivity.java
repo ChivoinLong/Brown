@@ -1,6 +1,7 @@
 package com.thesis.brown.brown;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -19,12 +20,14 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-
-import com.thesis.brown.brown.fragment.AllFragment;
-import com.thesis.brown.brown.fragment.CategoryFragment;
-import com.thesis.brown.brown.fragment.FeaturedFragment;
+import android.widget.FrameLayout;
+import android.widget.TableLayout;
 
 import com.thesis.brown.brown.StoreList.MainListStore;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,19 +45,20 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
     DrawerLayout mDrawerLayout;
     NavigationView mNavigationView;
     TabLayout tabLayout;
-
+    FrameLayout frameContent;
+    String currentTap = "MENU";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu);
+        setContentView(R.layout.fragment_menu);
 
         Toolbar toolbar  = (Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
 
         viewPager = (ViewPager) findViewById(R.id.view_pager);
         actionBar = getSupportActionBar();
-        tabsAdapter = new MyAdapter(getSupportFragmentManager());
+        tabsAdapter = new MyAdapter(getSupportFragmentManager(), 3);
         tabsAdapter.addFragment(new CategoryFragment());
         tabsAdapter.addFragment(new FeaturedFragment());
         tabsAdapter.addFragment(new AllFragment());
@@ -84,10 +88,22 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
         mDrawerLayout.setDrawerListener(mDrawerToggle);
         mDrawerToggle.syncState();
 
+
+        setControls();
         setEvents();
+        startUp();
+    }
+
+    void setControls(){
+        frameContent = (FrameLayout)findViewById(R.id.main_content);
     }
 
     void setEvents(){
+
+    }
+
+    void startUp(){
+
     }
 
     @Override
@@ -99,15 +115,27 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
 
         switch (item.getItemId()){
             case R.id.nav_menu:
+
                 tabLayout.setVisibility(View.VISIBLE);
-                // Call itself
-                manager.beginTransaction().remove(getFragmentManager().findFragmentById(R.id.main_content)).commit();
+                viewPager.setVisibility(View.VISIBLE);
+
+                if (!currentTap.equals("MENU")){
+                    manager.beginTransaction().remove(getFragmentManager().findFragmentById(R.id.main_content)).commit();
+                }
+
+                currentTap = "MENU";
+
                 break;
 
             case R.id.nav_shop_location:
+
                 tabLayout.setVisibility(View.GONE);
+                viewPager.setVisibility(View.GONE);
 
                 manager.beginTransaction().replace(R.id.main_content,new MainListStore()).commit();
+
+                currentTap = "LOCATION";
+
                 break;
         }
 
@@ -117,14 +145,17 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
     public static class MyAdapter extends FragmentPagerAdapter {
 
         static List<Fragment> fragments = new ArrayList<>();
+        int numPages;
 
-        public MyAdapter(FragmentManager fm) {
+        public MyAdapter(FragmentManager fm, int numPages) {
             super(fm);
+
+            this.numPages = numPages;
         }
 
         @Override
         public int getCount() {
-            return 3;
+            return numPages;
         }
 
         @Override

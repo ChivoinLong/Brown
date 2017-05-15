@@ -17,9 +17,12 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TableLayout;
+
+import com.thesis.brown.brown.StoreList.MainListStore;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +39,7 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
     ActionBarDrawerToggle mDrawerToggle;
     DrawerLayout mDrawerLayout;
     NavigationView mNavigationView;
+    TabLayout tabLayout;
 
 
     @Override
@@ -54,9 +58,8 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
         tabsAdapter.addFragment(new AllFragment());
 
         viewPager.setAdapter(tabsAdapter);
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabLayout);
+        tabLayout = (TabLayout) findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(viewPager);
-
 
 //        actionBar.setHomeButtonEnabled(false);
 //        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
@@ -78,21 +81,35 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
         };
         mDrawerLayout.setDrawerListener(mDrawerToggle);
         mDrawerToggle.syncState();
+
+        setEvents();
+    }
+
+    void setEvents(){
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+        mDrawerLayout.closeDrawer(GravityCompat.START);
+
+        android.app.FragmentManager manager = getFragmentManager();
+
         switch (item.getItemId()){
             case R.id.nav_menu:
+                tabLayout.setVisibility(View.VISIBLE);
+                // Call itself
+                manager.beginTransaction().remove(getFragmentManager().findFragmentById(R.id.main_content)).commit();
+                break;
 
-//                getSupportFragmentManager().beginTransaction()
-//                        .replace(R.id.main_content, new MenuActivity())
-//                        .commit();
-                mDrawerLayout.closeDrawer(GravityCompat.START);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+            case R.id.nav_shop_location:
+                tabLayout.setVisibility(View.GONE);
+
+                manager.beginTransaction().replace(R.id.main_content,new MainListStore()).commit();
+                break;
         }
+
+        return super.onOptionsItemSelected(item);
     }
 
     public static class MyAdapter extends FragmentPagerAdapter {

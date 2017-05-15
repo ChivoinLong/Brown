@@ -11,14 +11,16 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
 
-import com.thesis.brown.brown.StoreList.f_store_list;
+import com.thesis.brown.brown.StoreList.MainListStore;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     ActionBarDrawerToggle mDrawerToggle;
     DrawerLayout mDrawerLayout;
     NavigationView mNavigationView;
+    LinearLayout linFirstRun;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,24 +49,32 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mDrawerLayout.setDrawerListener(mDrawerToggle);
         mDrawerToggle.syncState();
 
+        setEvents();
 
-        Intent i = new Intent(this, f_store_list.class);
-        startActivity(i);
+    }
 
+    void setEvents(){
+        linFirstRun = (LinearLayout)findViewById(R.id.linFirstRun);
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+        android.app.FragmentManager manager = getFragmentManager();
+
         switch (item.getItemId()){
             case R.id.nav_menu:
-//                getSupportFragmentManager().beginTransaction()
-//                        .replace(R.id.main_content, new MenuActivity())
-//                        .commit();
                 startActivity(new Intent(this, MenuActivity.class));
-                mDrawerLayout.closeDrawer(GravityCompat.START);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+                break;
+
+            case R.id.nav_shop_location:
+                setTitle("Shop Location");
+                linFirstRun.setVisibility(View.GONE);
+                manager.beginTransaction().replace(R.id.main_content,new MainListStore()).commit();
+                break;
         }
+
+        mDrawerLayout.closeDrawer(GravityCompat.START);
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -18,8 +18,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".MenuActivity" />
-        <activity android:name=".StoreList.f_store_list" />
-        <activity android:name=".StoreList.f_store_list" />
+        <activity android:name=".StoreList.MainListStore" />
         <activity android:name=".MainShowDetailStore"></activity>
     </application>
 

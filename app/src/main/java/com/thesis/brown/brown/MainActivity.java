@@ -74,8 +74,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Log.d("result", String.valueOf(array.getJSONObject(0).getString("subcategory")));
             Log.d("result", String.valueOf(array.getJSONObject(1).getString("subcategory")));
 
-//            Log.d("result", String.valueOf(new JSONObject(array.getJSONObject(0).getString("subcategory")).getJSONObject("")));
-//            Log.d("result", String.valueOf(new JSONObject(array.getJSONObject(1).getString("subcategory"))));
+            Log.d("result", String.valueOf(new JSONArray(array.getJSONObject(0).getString("subcategory")).getJSONObject(0).getString("products")));
+            Log.d("result", String.valueOf(new JSONArray(array.getJSONObject(1).getString("subcategory")).getJSONObject(0).getString("products")));
 
         } catch (JSONException e) {
             e.printStackTrace();

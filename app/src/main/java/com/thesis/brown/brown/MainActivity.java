@@ -11,17 +11,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.LinearLayout;
 
-import com.thesis.brown.brown.StoreList.MainListStore;
 import com.thesis.brown.brown.fragment.MenuFragment;
+import com.thesis.brown.brown.store_list.MainListStore;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     ActionBarDrawerToggle mDrawerToggle;
     DrawerLayout mDrawerLayout;
     NavigationView mNavigationView;
-    LinearLayout linFirstRun;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 super.onDrawerClosed(drawerView);
             }
         };
-        mDrawerLayout.setDrawerListener(mDrawerToggle);
+//        mDrawerLayout.setDrawerListener(mDrawerToggle);
         mDrawerToggle.syncState();
 
         getSupportFragmentManager().beginTransaction().add(R.id.content_main, new MenuFragment()).commit();

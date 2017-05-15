@@ -1,4 +1,4 @@
-package com.thesis.brown.brown.StoreList;
+package com.thesis.brown.brown.store_list;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,14 +12,11 @@ import com.thesis.brown.brown.R;
 
 import java.util.ArrayList;
 
-/**
- * Created by lolzzlolzz on 6/28/16.
- */
 public class ListStoreListAdp extends ArrayAdapter<ListStoreListModel> {
 
-    Context context;
-    int resource;
-    LayoutInflater layoutInflater;
+    private Context context;
+    private int resource;
+    private LayoutInflater layoutInflater;
 
     public ListStoreListAdp(Context _con, int _res, ArrayList<ListStoreListModel> listModels){
 

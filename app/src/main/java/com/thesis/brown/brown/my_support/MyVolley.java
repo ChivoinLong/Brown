@@ -1,4 +1,4 @@
-package com.thesis.brown.brown.MySupport;
+package com.thesis.brown.brown.my_support;
 
 import android.app.Application;
 import android.text.TextUtils;
@@ -10,26 +10,43 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
-/**
- * Created by lolzzlolzz on 7/18/16.
- */
 public class MyVolley extends Application {
 
+    static final String TAG = "DEFAULT";
     static MyVolley myInstance;
     static RequestQueue myRequestQ;
-    static final String TAG = "DEFAULT";
     static String OLDTAG = "DEFAULT";
 
+    public static synchronized MyVolley getMyInstance() {
+        return myInstance;
+    }
+
+    public static void cancelPendingRequests(Object tag) {
+        if (myRequestQ != null) {
+            myRequestQ.cancelAll(tag);
+        }
+    }
+
+    public static void cancelOldPandingRequest() {
+        StringRequest stringRequest = new StringRequest(Request.Method.DEPRECATED_GET_OR_POST, "", new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+            }
+        });
+
+        MyVolley.getMyInstance().addToRequestQueue(stringRequest);
+    }
 
     @Override
     public void onCreate() {
         super.onCreate();
 
         myInstance = this;
-    }
-
-    public static synchronized MyVolley getMyInstance(){
-        return myInstance;
     }
 
     public RequestQueue getMyRequestQ(){
@@ -50,26 +67,5 @@ public class MyVolley extends Application {
     public <T> void addToRequestQueue(Request<T> request) {
         request.setTag(TAG);
         getMyRequestQ().add(request);
-    }
-
-    public static void cancelPendingRequests(Object tag){
-        if (myRequestQ != null){
-            myRequestQ.cancelAll(tag);
-        }
-    }
-
-    public static void cancelOldPandingRequest(){
-        StringRequest stringRequest = new StringRequest(Request.Method.DEPRECATED_GET_OR_POST, "", new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-            }
-        });
-
-        MyVolley.getMyInstance().addToRequestQueue(stringRequest);
     }
 }

@@ -1,18 +1,13 @@
 package com.thesis.brown.brown;
 
-import android.support.annotation.IntegerRes;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
-
-/**
- * Created by Obi-Voin Kenobi on 26-Mar-17.
- */
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     private List<String> mItemName;
@@ -36,8 +31,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         holder.setItemText(itemText);
         if(mItemPic != null) {
             int itemPic = mItemPic.get(position);
-            holder.setCardBackground(itemPic);
+            holder.setBackgroundImage(itemPic);
         }
+
     }
 
     @Override
@@ -47,24 +43,26 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     private static class RecyclerViewItemHolder extends RecyclerView.ViewHolder{
         private final TextView mItemTextView;
-        private final CardView mCardView;
+        private final ImageView mItemImage;
 
-        RecyclerViewItemHolder(View itemView, TextView itemTextView, CardView cardView) {
+        RecyclerViewItemHolder(View itemView, TextView itemTextView, ImageView itemImage) {
             super(itemView);
             mItemTextView = itemTextView;
-            mCardView = cardView;
+            mItemImage = itemImage;
         }
 
         static RecyclerViewItemHolder newInstance(View parent) {
             TextView itemTextView = (TextView) parent.findViewById(R.id.itemName);
-            CardView cardView = (CardView) parent.findViewById(R.id.itemCard);
-            return new RecyclerViewItemHolder(parent, itemTextView, cardView);
+            ImageView itemImageView = (ImageView) parent.findViewById(R.id.itemImage);
+            return new RecyclerViewItemHolder(parent, itemTextView, itemImageView);
         }
 
         void setItemText(CharSequence text) {
             mItemTextView.setText(text);
         }
 
-        void setCardBackground(int res) { mCardView.setBackgroundResource(res); }
+        void setBackgroundImage(int res) {
+            mItemImage.setImageResource(res);
+        }
     }
 }

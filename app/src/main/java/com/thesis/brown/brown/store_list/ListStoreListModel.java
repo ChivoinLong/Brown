@@ -1,13 +1,10 @@
-package com.thesis.brown.brown.StoreList;
+package com.thesis.brown.brown.store_list;
 
 import java.io.Serializable;
 
-/**
- * Created by lolzzlolzz on 6/28/16.
- */
 public class ListStoreListModel implements Serializable{
 
-    String title, road, phone, link, imgURL, openingTime;
+    private String title, road, phone, link, imgURL, openingTime;
 
     public ListStoreListModel(String title, String road, String phone, String link, String imgURL, String openingTime) {
         this.title = title;

@@ -1,10 +1,8 @@
 package com.thesis.brown.brown;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
-
-import com.thesis.brown.brown.StoreList.ListStoreListModel;
 
 import org.json.JSONException;
 import org.json.JSONObject;

@@ -10,18 +10,20 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <ImageView
+            android:id="@+id/itemCard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_cafe_b"
-            android:padding="15dp"
-            />
+            android:contentDescription="Item Image"
+            android:maxHeight="150dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/caramel_latte" />
 
         <TextView
-            android:id="@+id/itemTextView"
+            android:id="@+id/itemName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"

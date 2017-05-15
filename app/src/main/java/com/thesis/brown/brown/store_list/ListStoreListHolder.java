@@ -1,11 +1,8 @@
-package com.thesis.brown.brown.StoreList;
+package com.thesis.brown.brown.store_list;
 
 import android.widget.ImageView;
 import android.widget.TextView;
 
-/**
- * Created by lolzzlolzz on 6/28/16.
- */
 public class ListStoreListHolder {
 
     public TextView txtTitle, txtRoad, txtPhone, txtLink;

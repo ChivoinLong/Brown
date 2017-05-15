@@ -1,6 +1,4 @@
-package com.thesis.brown.brown.MySupport;
-
-import android.content.Context;
+package com.thesis.brown.brown.my_support;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -13,18 +11,14 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by Obi-Voin Kenobi on 15-May-17.
- */
+public class MySupporter {
 
-public class MySupport {
+    private static MySupporter_Interface mySupporter_interface;
 
-    static MySupporter_Interface mySupporter_interface;
-
-    public static void Volley(String url, final Map<String, String> params, Context _context) {
+    public static void Volley(String url, final Map<String, String> params, MySupporter_Interface _mySupporter_interface) {
 
         MyVolley.cancelOldPandingRequest();
-        mySupporter_interface = (MySupporter_Interface) _context;
+        mySupporter_interface = _mySupporter_interface;
 
         StringRequest stringRequest = new StringRequest(Request.Method.DEPRECATED_GET_OR_POST, url, new Response.Listener<String>() {
             @Override
@@ -39,16 +33,20 @@ public class MySupport {
         }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
+
                 String key = "", value = "";
                 HashMap<String, String> maps = new HashMap<>();
 
                 for (Map.Entry<String, String> entry : params.entrySet()) {
+
                     key = entry.getKey();
+
                     try {
                         value = URLEncoder.encode(entry.getValue(), "utf-8");
                     } catch (UnsupportedEncodingException e) {
                         e.printStackTrace();
                     }
+
                     maps.put(key, value);
                 }
 
@@ -57,11 +55,5 @@ public class MySupport {
         };
 
         MyVolley.getMyInstance().addToRequestQueue(stringRequest);
-    }
-
-    public interface MySupporter_Interface {
-        void onVolleyFinished(String response);
-
-        void onVolleyError(String message);
     }
 }

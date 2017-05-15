@@ -14,10 +14,6 @@ import com.thesis.brown.brown.RecyclerAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Obi-Voin Kenobi on 26-Mar-17.
- */
-
 public class FeaturedFragment extends Fragment {
     public static final String POSITION_KEY = "FragmentPositionKey";
 
@@ -33,12 +29,11 @@ public class FeaturedFragment extends Fragment {
 
         RecyclerView recyclerView = (RecyclerView) root.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
-        RecyclerAdapter recyclerAdapter = new RecyclerAdapter(createItemName(10), null);
+        RecyclerAdapter recyclerAdapter = new RecyclerAdapter(createItemName(10), createItemRes(10));
         recyclerView.setAdapter(recyclerAdapter);
 
         return root;
     }
-/*
 
     private List<Integer> createItemRes(int num) {
         List<Integer> list = new ArrayList<>();
@@ -51,7 +46,6 @@ public class FeaturedFragment extends Fragment {
         }
         return list;
     }
-*/
 
     List<String> createItemName(int num){
         List<String> list = new ArrayList<>();

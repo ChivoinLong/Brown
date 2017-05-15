@@ -28,9 +28,21 @@ public class AllFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_all, container, false);
         RecyclerView recyclerView = (RecyclerView) root.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        RecyclerAdapter recyclerAdapter = new RecyclerAdapter(createItemList(50), null);
+        RecyclerAdapter recyclerAdapter = new RecyclerAdapter(createItemList(50), createItemRes(50));
         recyclerView.setAdapter(recyclerAdapter);
         return root;
+    }
+
+    private List<Integer> createItemRes(int num) {
+        List<Integer> list = new ArrayList<>();
+        for (int i = 1; i <= num; i++) {
+            list.add(R.drawable.caramel_latte);
+            list.add(R.drawable.caramel_macchiato);
+            list.add(R.drawable.iced_vanilla_latte);
+            list.add(R.drawable.iced_mocha);
+            list.add(R.drawable.iced_green_tea_latte);
+        }
+        return list;
     }
 
     List<String> createItemList(int num){

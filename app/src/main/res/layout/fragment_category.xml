@@ -3,18 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.thesis.brown.brown.Category.CategoryFragment">
+    tools:context="com.thesis.brown.brown.CategoryFragment">
 
     <!-- TODO: Update blank fragment layout -->
-
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/lisCategoryFragment"
-        android:clipToPadding="true"
-        >
-
-    </ListView>
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
@@ -22,5 +13,6 @@
         android:padding="2dp"
         android:id="@+id/recyclerView"
         android:clipToPadding="false"/>
+
 
 </LinearLayout>

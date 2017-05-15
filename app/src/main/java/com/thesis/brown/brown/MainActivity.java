@@ -55,6 +55,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mDrawerLayout.setDrawerListener(mDrawerToggle);
         mDrawerToggle.syncState();
 
+        getSupportFragmentManager().beginTransaction().add(R.id.content_main, new MenuFragment()).commit();
+
         setControls();
         setEvents();
         startUp();

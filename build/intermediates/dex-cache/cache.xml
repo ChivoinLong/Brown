@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="C:\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.3.0\support-annotations-25.3.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="dd84903d2e1af25a6081ef9038ad863cb14ca3a0">
+        <dex dex="C:\Users\Obi-Voin Kenobi\Desktop\Brown\app\build\intermediates\pre-dexed\debug\support-annotations-25.3.0_ced53534f39b563e23f3ea1fff8f988cc2eef87b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Obi-Voin Kenobi\.android\build-cache\ae603df631c5c235dd672378d73bc0b9f911a4f4\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d6a04527c17597019dad82777c5094a3d60d1c33">
+        <dex dex="C:\Users\Obi-Voin Kenobi\Desktop\Brown\app\build\intermediates\pre-dexed\debug\classes_2866ca93791aef89074386fe1977aae5d0a06baa.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Obi-Voin Kenobi\.android\build-cache\46aa3376f4d2dfb536c5a0ad9596ff311ac52c32\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4b746ef0fd46acb5aaf3d9ab9a4cec22c28d3211">
+        <dex dex="C:\Users\Obi-Voin Kenobi\Desktop\Brown\app\build\intermediates\pre-dexed\debug\classes_b424e64b99d9faf07f9a22235349d549a223309c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Obi-Voin Kenobi\.android\build-cache\c90fa0e277f40188c9ea472efefe23e8cdd650b2\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="fbb206f7a119f66ce171d95aae1225a5b209a8b7">
+        <dex dex="C:\Users\Obi-Voin Kenobi\Desktop\Brown\app\build\intermediates\pre-dexed\debug\classes_472d521f53809484bb1ea62a2e1c540f798b84e8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Obi-Voin Kenobi\.android\build-cache\45f2f05f323a0fefc0b4d60e08f811717fdd364a\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="518768f3200963fbfec652f498da2c9d39245234">
+        <dex dex="C:\Users\Obi-Voin Kenobi\Desktop\Brown\app\build\intermediates\pre-dexed\debug\classes_800b903fc375ed70a241981650b7e35dcb092f08.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Obi-Voin Kenobi\.android\build-cache\e4ec58909493d418b0ae5c2e1fc26875cc5e8066\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="C:\Users\Obi-Voin Kenobi\Desktop\Brown\app\build\intermediates\pre-dexed\debug\classes_fa622e385e5245a832164b81b47a27a32c7c97aa.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Obi-Voin Kenobi\.android\build-cache\3a570a6ff15c5ae8e174a1ce8642eb8671e3ab05\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="5cc5ef8347a6bafa14556cbd35230aa9b3431bb0">
+        <dex dex="C:\Users\Obi-Voin Kenobi\Desktop\Brown\app\build\intermediates\pre-dexed\debug\classes_f87f662c031975a906d38fad112b5d0ed5bfc219.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Obi-Voin Kenobi\.android\build-cache\301cc48af6bc682d400c152a4c2fc4ed0eaa45e9\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c5d103b270b3f3b50d8e6b44aa8e068b0de33426">
+        <dex dex="C:\Users\Obi-Voin Kenobi\Desktop\Brown\app\build\intermediates\pre-dexed\debug\classes_e863c71e7e9793e40f132df84aa7f2cbdae4bc12.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Obi-Voin Kenobi\.android\build-cache\5f4bce80d0f033dec841d015e5980b0f37d047eb\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="70f23cb87278f89aa51e6f57e8f0fd5266572d95">
+        <dex dex="C:\Users\Obi-Voin Kenobi\Desktop\Brown\app\build\intermediates\pre-dexed\debug\classes_3c69b176164ccbd6b45be587fdd7758da9848435.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Obi-Voin Kenobi\.gradle\caches\modules-2\files-2.1\com.mcxiaoke.volley\library\1.0.19\a8f23f65fc1e522ee4a1a697ee569901a46741fa\library-1.0.19.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a8f23f65fc1e522ee4a1a697ee569901a46741fa">
+        <dex dex="C:\Users\Obi-Voin Kenobi\Desktop\Brown\app\build\intermediates\pre-dexed\debug\library-1.0.19_801b460e1c07e7ac4e04a6ea9131a66d9e8bfafe.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Obi-Voin Kenobi\.android\build-cache\0d59278b4700cda8e80d9885e7ab837d2025e7db\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="93c10d68ab5ea070f15782ae6d3a28d1f1d8f45e">
+        <dex dex="C:\Users\Obi-Voin Kenobi\Desktop\Brown\app\build\intermediates\pre-dexed\debug\classes_fdb1ecb85ec1b82883a5240e7d1d86b4850f894a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Obi-Voin Kenobi\.android\build-cache\dcf3d9783410948fdd893ce267704671f5e96ae2\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a3e61044038fb54cddf6b8dc79f41d2b57f42caf">
+        <dex dex="C:\Users\Obi-Voin Kenobi\Desktop\Brown\app\build\intermediates\pre-dexed\debug\classes_c8fb71ad0823227f590e66dd93ff6b74fb1e8449.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Obi-Voin Kenobi\.android\build-cache\678d387b780f9dd290f4cdeae2a01cf165a6f79a\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="93c1199fcb0a34b980e6fff8350daff62e696ec2">
+        <dex dex="C:\Users\Obi-Voin Kenobi\Desktop\Brown\app\build\intermediates\pre-dexed\debug\classes_3dbafc25329e7ba50746a6bbda40741cfcf6fcc4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Obi-Voin Kenobi\.android\build-cache\e0eda9058757ee90034a2e739e1c841887961af7\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="9ab787a20aae245b5b3651ae0b9c38459eb37715">
+        <dex dex="C:\Users\Obi-Voin Kenobi\Desktop\Brown\app\build\intermediates\pre-dexed\debug\classes_0519b238ca7d3fcacfb43c3aa9379415b1340774.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Android\sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.2\constraint-layout-solver-1.0.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="C:\Users\Obi-Voin Kenobi\Desktop\Brown\app\build\intermediates\pre-dexed\debug\constraint-layout-solver-1.0.2_dce0f5dc4ec87302d879250c45fe5f3f72f02917.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Obi-Voin Kenobi\.android\build-cache\0cccf197918a440bb8a88f7ea5542de6a7e2800f\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\Obi-Voin Kenobi\Desktop\Brown\app\build\intermediates\pre-dexed\debug\classes_24298d41ad1c479f040570cea5e23a11cac43887.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Obi-Voin Kenobi\.android\build-cache\71028dd6c28d873e257280a44da9bca613fd11d9\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="425c7b17887e5c3f8cbdf67ba171bc246f29b42c">
+        <dex dex="C:\Users\Obi-Voin Kenobi\Desktop\Brown\app\build\intermediates\pre-dexed\debug\classes_76c59ea11a3a226583355746696713207bdfc492.jar" />
+    </item>
+
+</items>

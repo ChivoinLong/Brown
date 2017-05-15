@@ -9,9 +9,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/txtNameCateRow"
         android:text="Hello"
-        android:layout_marginLeft="190px"
+        android:layout_marginLeft="120px"
         android:padding="10px"
-        android:textStyle="italic"
         />
 
 </LinearLayout>

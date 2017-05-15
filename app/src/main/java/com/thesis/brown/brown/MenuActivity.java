@@ -156,6 +156,7 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
         public Fragment getItem(int position) {
             Bundle args = new Bundle();
             args.putInt(CategoryFragment.POSITION_KEY, position);
+
             return fragments.get(position);
         }
 

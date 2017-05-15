@@ -24,7 +24,6 @@ public class CateListAdp extends BaseAdapter {
     LayoutInflater inflater;
     static final int ROW = 0;
     static final int HEADER = 1;
-    static final int INNER_HEADER = 2;
 
     public CateListAdp(Context context, ArrayList<Object> myDB){
         this.context = context;
@@ -52,15 +51,12 @@ public class CateListAdp extends BaseAdapter {
         if (getItem(position) instanceof CateListModel){
             return ROW;
         }
-        else if (getItem(position) instanceof CateListModelInnerSub){
-            return INNER_HEADER;
-        }
         return HEADER;
     }
 
     @Override
     public int getViewTypeCount() {
-        return 3;
+        return 2;
     }
 
     @Override
@@ -74,9 +70,6 @@ public class CateListAdp extends BaseAdapter {
                 case ROW :
                     convertView = inflater.inflate(R.layout.item_category,null);
                     break;
-                case INNER_HEADER :
-                    convertView = inflater.inflate(R.layout.item_category_inner_header,null);
-                    break;
                 default:
                     convertView = inflater.inflate(R.layout.item_category_header,null);
                     break;
@@ -86,29 +79,19 @@ public class CateListAdp extends BaseAdapter {
         switch (myType){
 
             case ROW :
-                CateListModel cateListModel = (CateListModel)getItem(position);
+                CateListModel phoneListModel = (CateListModel)getItem(position);
 
                 TextView txtName = (TextView)convertView.findViewById(R.id.txtNameCateRow);
 
-                txtName.setText(cateListModel.getName());
-
-                convertView.setBackgroundColor(Color.parseColor("#FFFDFDFD"));
+                txtName.setText(phoneListModel.getName());
 
                 break;
-
-            case INNER_HEADER :
-                CateListModelInnerSub cateListModelInnerSub = (CateListModelInnerSub)getItem(position);
-                TextView txtInnerHeader = (TextView)convertView.findViewById(R.id.txtInnerHeaderCateHeader);
-                txtInnerHeader.setText(cateListModelInnerSub.getName());
-
-                break;
-
             default:
                 String header = (String)getItem(position);
-                TextView txtHeader = (TextView)convertView.findViewById(R.id.txtHeaderCateHeader);
-                txtHeader.setText(header);
 
-                convertView.setBackgroundColor(Color.parseColor("#FFE4E4E4"));
+                TextView txtHeader = (TextView)convertView.findViewById(R.id.txtHeaderCateHeader);
+
+                txtHeader.setText(header);
 
                 break;
         }

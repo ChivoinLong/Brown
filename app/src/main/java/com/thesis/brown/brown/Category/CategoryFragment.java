@@ -38,7 +38,7 @@ public class CategoryFragment extends Fragment {
         RecyclerView recyclerView = (RecyclerView) root.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        RecyclerAdapter recyclerAdapter = new RecyclerAdapter(createItemList(50));
+        RecyclerAdapter recyclerAdapter = new RecyclerAdapter(createItemList(50), null);
         recyclerView.setAdapter(recyclerAdapter);
 
         // remove a below line to show the recyclerView
@@ -67,7 +67,7 @@ public class CategoryFragment extends Fragment {
     }
 
     void setControls (){
-        lisCate = (ListView)getActivity().findViewById(R.id.lisCategoryFragment);
+//        lisCate = (ListView)getActivity().findViewById(R.id.lisCategoryFragment);
     }
 
     void setEvents (){

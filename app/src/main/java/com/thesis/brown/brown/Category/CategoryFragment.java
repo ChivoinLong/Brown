@@ -35,17 +35,22 @@ public class CategoryFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_category, container, false);
 
-        RecyclerView recyclerView = (RecyclerView) root.findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
-        RecyclerAdapter recyclerAdapter = new RecyclerAdapter(createItemList(50), null);
-        recyclerView.setAdapter(recyclerAdapter);
-
-        // remove a below line to show the recyclerView
-        recyclerView.setVisibility(View.GONE);
+//        RecyclerView recyclerView = (RecyclerView) root.findViewById(R.id.recyclerView);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+//
+//        RecyclerAdapter recyclerAdapter = new RecyclerAdapter(createItemList(50), null);
+//        recyclerView.setAdapter(recyclerAdapter);
+//
+//        // remove a below line to show the recyclerView
+//        recyclerView.setVisibility(View.GONE);
 
         // in Fragment we should use on onActivityCreated !
-
+//        setControls();
+        lisCate = (ListView)root.findViewById(R.id.lisCategoryFragment);
+        setEvents();
+//        startUp();
+        lisData = new ArrayList<>();
+        showListWithData();
         return root;
     }
 
@@ -61,13 +66,13 @@ public class CategoryFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        setControls();
-        setEvents();
-        startUp();
+//        setControls();
+//        setEvents();
+//        startUp();
     }
 
     void setControls (){
-//        lisCate = (ListView)getActivity().findViewById(R.id.lisCategoryFragment);
+
     }
 
     void setEvents (){

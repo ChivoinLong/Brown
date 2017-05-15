@@ -30,7 +30,7 @@ public class FeaturedFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_category, container, false);
+        View root = inflater.inflate(R.layout.fragment_featured, container, false);
 
         RecyclerView recyclerView = (RecyclerView) root.findViewById(R.id.recyclerView);
 //        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

@@ -52,11 +52,11 @@ public class MenuFragment extends Fragment {
         public Fragment getItem(int position) {
             switch (position){
                 case 0:
-                    return new CategoryFragment();
+                    return com.thesis.brown.brown.Category.CategoryFragment.newInstance(getArguments());
                 case 1:
-                    return new FeaturedFragment();
+                    return FeaturedFragment.newInstance(getArguments());
                 case 2:
-                    return new AllFragment();
+                    return AllFragment.newInstance(getArguments());
             }
             return null;
         }

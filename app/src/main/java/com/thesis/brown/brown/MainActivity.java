@@ -3,6 +3,7 @@ package com.thesis.brown.brown;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -15,6 +16,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.thesis.brown.brown.StoreList.MainListStore;
+import com.thesis.brown.brown.fragment.MenuFragment;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -34,10 +36,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar  = (Toolbar) findViewById(R.id.app_bar);
+        Toolbar toolbar  = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-//        getSupportActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+//        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         mNavigationView = (NavigationView) findViewById(R.id.nav_view);
         mNavigationView.setNavigationItemSelectedListener(this);
@@ -56,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mDrawerLayout.setDrawerListener(mDrawerToggle);
         mDrawerToggle.syncState();
 
+        getSupportFragmentManager().beginTransaction().add(R.id.content_main, new MenuFragment()).commit();
 
         setControls();
         setEvents();
@@ -71,27 +73,37 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     void setControls(){
-        linFirstRun = (LinearLayout)findViewById(R.id.linFirstRun);
+//        linFirstRun = (LinearLayout)findViewById(R.id.linFirstRun);
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-        android.app.FragmentManager manager = getFragmentManager();
+        FragmentManager manager = getSupportFragmentManager();
 
         switch (item.getItemId()){
             case R.id.nav_menu:
-                startActivity(new Intent(this, MenuActivity.class));
+                setTitle("Menu");
+                manager.beginTransaction().replace(R.id.content_main, new MenuFragment()).commit();
                 break;
 
             case R.id.nav_shop_location:
                 setTitle("Shop Location");
-                linFirstRun.setVisibility(View.GONE);
-                manager.beginTransaction().replace(R.id.main_content,new MainListStore()).commit();
+//                linFirstRun.setVisibility(View.GONE);
+                manager.beginTransaction().replace(R.id.content_main, new MainListStore()).commit();
                 break;
         }
 
         mDrawerLayout.closeDrawer(GravityCompat.START);
-        return super.onOptionsItemSelected(item);
+        return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
+            mDrawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
     }
 }

@@ -1,4 +1,4 @@
-package com.thesis.brown.brown.fragment;
+package com.thesis.brown.brown;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,7 +10,8 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.thesis.brown.brown.R;
+
+import com.thesis.brown.brown.Category.CategoryFragment;
 
 public class MenuFragment extends Fragment {
 

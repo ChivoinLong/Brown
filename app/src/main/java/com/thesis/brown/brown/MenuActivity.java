@@ -47,10 +47,10 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_menu);
 
-        Toolbar toolbar  = (Toolbar) findViewById(R.id.app_bar);
+        Toolbar toolbar  = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        viewPager = (ViewPager) findViewById(R.id.view_pager);
+        viewPager = (ViewPager) findViewById(R.id.viewpager);
         actionBar = getSupportActionBar();
         tabsAdapter = new MyAdapter(getSupportFragmentManager(), 3);
         tabsAdapter.addFragment(new CategoryFragment());
@@ -58,7 +58,7 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
         tabsAdapter.addFragment(new AllFragment());
 
         viewPager.setAdapter(tabsAdapter);
-        tabLayout = (TabLayout) findViewById(R.id.tabLayout);
+        tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(viewPager);
 
 //        actionBar.setHomeButtonEnabled(false);
@@ -89,7 +89,7 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
     }
 
     void setControls(){
-        frameContent = (FrameLayout)findViewById(R.id.main_content);
+        frameContent = (FrameLayout)findViewById(R.id.content_main);
     }
 
     void setEvents(){
@@ -114,7 +114,7 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
                 viewPager.setVisibility(View.VISIBLE);
 
                 if (!currentTap.equals("MENU")){
-                    manager.beginTransaction().remove(getFragmentManager().findFragmentById(R.id.main_content)).commit();
+                    manager.beginTransaction().remove(getFragmentManager().findFragmentById(R.id.content_main)).commit();
                 }
 
                 currentTap = "MENU";
@@ -126,7 +126,7 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
                 tabLayout.setVisibility(View.GONE);
                 viewPager.setVisibility(View.GONE);
 
-                manager.beginTransaction().replace(R.id.main_content,new MainListStore()).commit();
+//                manager.beginTransaction().replace(R.id.content_main, new MainListStore()).commit();
 
                 currentTap = "LOCATION";
 

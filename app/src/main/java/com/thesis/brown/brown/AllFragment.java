@@ -28,20 +28,6 @@ public class AllFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_all, container, false);
-//        RecyclerView recyclerView = (RecyclerView) root.findViewById(R.id.recyclerView);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-//        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
-//        RecyclerAdapter recyclerAdapter = new RecyclerAdapter(createItemList(50));
-//        recyclerView.setAdapter(recyclerAdapter);
-        return root;
-    }
-
-    List<String> createItemList(int num){
-        List<String> list = new ArrayList<>();
-        for (int i = 1; i <= num; i++){
-            list.add("Item " + i);
-        }
-        return list;
+        return inflater.inflate(R.layout.fragment_all, container, false);
     }
 }

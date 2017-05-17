@@ -28,7 +28,7 @@ public class AllFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_all, container, false);
         RecyclerView recyclerView = (RecyclerView) root.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        RecyclerAdapter recyclerAdapter = new RecyclerAdapter(createItemList(50), createItemRes(50));
+        RecyclerAdapter recyclerAdapter = new RecyclerAdapter(getContext(), createItemList(50), createItemRes(50), false);
         recyclerView.setAdapter(recyclerAdapter);
         return root;
     }
@@ -48,7 +48,11 @@ public class AllFragment extends Fragment {
     List<String> createItemList(int num){
         List<String> list = new ArrayList<>();
         for (int i = 1; i <= num; i++){
-            list.add("Item " + i);
+            list.add("Caramel Latte");
+            list.add("Caramel Macchiato");
+            list.add("Iced Vanilla Latte");
+            list.add("Iced Mocha");
+            list.add("Iced Green Tea Latte");
         }
         return list;
     }

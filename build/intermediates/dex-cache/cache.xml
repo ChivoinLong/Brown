@@ -102,6 +102,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\Obi-Voin Kenobi\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.5.2\7446d06ec8d4f7ffcc53f1da37c95f200dcb9387\picasso-2.5.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="C:\Users\Obi-Voin Kenobi\Desktop\Brown\app\build\intermediates\pre-dexed\debug\picasso-2.5.2_3d4f9133f68d9e6ff28eb237732e95db1fa95000.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\Obi-Voin Kenobi\.android\build-cache\dcf3d9783410948fdd893ce267704671f5e96ae2\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"

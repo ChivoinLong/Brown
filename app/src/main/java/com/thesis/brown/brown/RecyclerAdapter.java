@@ -1,5 +1,6 @@
 package com.thesis.brown.brown;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,20 +8,32 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
+    private Context mContext;
     private List<String> mItemName;
     private List<Integer> mItemPic;
+    private boolean isGrid = false;
 
-    public RecyclerAdapter(List<String> itemList, List<Integer> itemPic) {
+    public RecyclerAdapter(Context context, List<String> itemList, List<Integer> itemPic, boolean isGrid) {
+        mContext = context;
         mItemName = itemList;
         mItemPic = itemPic;
+        this.isGrid = isGrid;
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        final View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_item, parent, false);
+        View view;
+        if (isGrid) {
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_item_square, parent, false);
+        } else {
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_item_list, parent, false);
+        }
+
         return RecyclerViewItemHolder.newInstance(view);
     }
 
@@ -28,12 +41,17 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
         RecyclerViewItemHolder holder = (RecyclerViewItemHolder) viewHolder;
         String itemText = mItemName.get(position);
-        holder.setItemText(itemText);
-        if(mItemPic != null) {
-            int itemPic = mItemPic.get(position);
-            holder.setBackgroundImage(itemPic);
-        }
+        int itemPic = mItemPic.get(position);
 
+        holder.setItemText(itemText);
+        if (isGrid) {
+            holder.setBackgroundImage(itemPic);
+        } else {
+            Picasso.with(mContext)
+                    .load(itemPic)
+                    .transform(new RoundImageTransform())
+                    .into(holder.mItemImage);
+        }
     }
 
     @Override

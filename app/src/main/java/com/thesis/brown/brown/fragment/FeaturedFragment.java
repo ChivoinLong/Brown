@@ -28,8 +28,8 @@ public class FeaturedFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_featured, container, false);
 
         RecyclerView recyclerView = (RecyclerView) root.findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
-        RecyclerAdapter recyclerAdapter = new RecyclerAdapter(createItemName(10), createItemRes(10));
+        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
+        RecyclerAdapter recyclerAdapter = new RecyclerAdapter(getContext(), createItemName(10), createItemRes(10), true);
         recyclerView.setAdapter(recyclerAdapter);
 
         return root;

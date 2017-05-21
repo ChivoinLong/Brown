@@ -6,29 +6,39 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import com.thesis.brown.brown.CategoryListAdapter;
+import com.thesis.brown.brown.CategoryListModel;
 import com.thesis.brown.brown.R;
 import com.thesis.brown.brown.my_support.MySupporter;
 import com.thesis.brown.brown.my_support.MySupporter_Interface;
+import com.thesis.brown.brown.my_support.MyVolley;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
-public class CategoryFragment extends Fragment implements MySupporter_Interface {
+public class CategoryFragment extends Fragment{
 
     public static final String POSITION_KEY = "FragmentPositionKey";
     public static boolean gettingFirstData = true;
     public CategoryFragment context;
     ListView listView;
-    ArrayList<Object> listData;
-    ArrayList<Object> listJsonDB;
+    ArrayList<CategoryListModel> listData;
     ProgressBar proLoading;
 
 
@@ -40,7 +50,19 @@ public class CategoryFragment extends Fragment implements MySupporter_Interface 
 
     public void GetFirstData() {
         if (gettingFirstData) {
-            MySupporter.Volley("https://brown-ordering-system.herokuapp.com/api/v1/product", new HashMap<String, String>(), context);
+            /* If we have params we can put into HashMap like this
+
+            Map<String, String> hashMap = new HashMap<>();
+            hashMap.put("id", "101");
+
+            volleyGetCategoryList("https://brown-ordering-system.herokuapp.com/api/v1/product/categorylist", hashMap);
+
+            // Which means like this in URL https://brown-ordering-system.herokuapp.com/api/v1/product/categorylist?id=101
+
+            */
+
+            // This method is at bottom
+            volleyGetCategoryList("https://brown-ordering-system.herokuapp.com/api/v1/product/categorylist", new HashMap<String, String>());
         }
     }
 
@@ -51,7 +73,6 @@ public class CategoryFragment extends Fragment implements MySupporter_Interface 
         listView = (ListView) root.findViewById(R.id.listview);
         proLoading = (ProgressBar) root.findViewById(R.id.proLoadingMainCategory);
         listData = new ArrayList<>();
-        listJsonDB = new ArrayList<>();
         context = this;
 
         return root;
@@ -67,12 +88,16 @@ public class CategoryFragment extends Fragment implements MySupporter_Interface 
     @Override
     public void onPause() {
         super.onPause();
-        gettingFirstData = true;
-
     }
 
     private void setEvents() {
-
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Log.d("click", "\n Type : " + listData.get(i).getType() + "\n Name : " + listData.get(i).getName() + "\n ID : " + listData.get(i).getId());
+                // We can understand what we are gonna get detail whether cate or sub-cate
+            }
+        });
     }
 
     void startUp() {
@@ -80,65 +105,100 @@ public class CategoryFragment extends Fragment implements MySupporter_Interface 
     }
 
     private void prepareListData(String json) {
-        CategoryListAdapter.CategoryListModel model;
-        CategoryListAdapter.CategoryListModelInnerSub sub;
         listView.setVisibility(View.VISIBLE);
         proLoading.setVisibility(View.GONE);
 
+        // Copy this json and pass into this website jsonlint.com to have an easy look
+
         try {
-            JSONArray data = new JSONArray(new JSONObject(new JSONObject(json).getString("data")).getString("category"));
+            // Our response json start with { which means it is not json array, it is json object
+            JSONObject objResponse = new JSONObject(json);
 
-            for (int i = 0; i < data.length(); i++) {
-                Log.d("result", data.getJSONObject(i).getString("name"));
-                listData.add(data.getJSONObject(i).getString("name"));
+            // We can get value of each object by its key objResponse.getString("success")
+            // All response data is string anyway
+            if (objResponse.getString("success").equals("true")){
 
-                if (new JSONArray(data.getJSONObject(i).getString("products")).length() < 1) {
+                // We get value of data object but inside data starts with { again so we purse it with json object again
+                JSONObject data = new JSONObject(objResponse.getString("data"));
 
-                    for (int j = 0; j < new JSONArray(data.getJSONObject(i).getString("subcategory")).length(); j++) {
-                        JSONArray subcategory = new JSONArray(new JSONObject(String.valueOf(new JSONArray(data.getJSONObject(i).getString("subcategory")).getJSONObject(j))).getString("products"));
+                // We need categories but inside categories object data starts with [ so we purse it with json array
+                JSONArray categories = new JSONArray(data.getString("categories"));
 
-                        sub = new CategoryListAdapter.CategoryListModelInnerSub(new JSONObject(String.valueOf(new JSONArray(data.getJSONObject(i).getString("subcategory")).getJSONObject(j))).getString("name"));
-                        listData.add(sub);
+                // We got categories we want in JSONArray and we can loop through to get each data
+                Log.d("result", String.valueOf(categories));
 
-                        for (int k = 0; k < subcategory.length(); k++) {
-                            model = new CategoryListAdapter.CategoryListModel(subcategory.getJSONObject(k).getString("name"));
-                            listData.add(model);
+                CategoryListModel cModel;
+                for (int i=0; i<categories.length(); i++){
+
+                    cModel = new CategoryListModel("MainHeader", categories.getJSONObject(i).getString("name"), categories.getJSONObject(i).getString("_id"));
+                    listData.add(cModel);
+
+                    // Check whether it contains subcategory or not
+                    if (categories.getJSONObject(i).getString("subcategory").length() > 1){
+
+                        // Purse subcategory into json array because it starts with [
+                        JSONArray subcategory = new JSONArray(categories.getJSONObject(i).getString("subcategory"));
+
+                        for (int j=0; j<subcategory.length(); j++) {
+                            cModel = new CategoryListModel("InnerHeader", subcategory.getJSONObject(j).getString("name"), subcategory.getJSONObject(j).getString("_id"));
+                            listData.add(cModel);
                         }
                     }
-                } else {
-                    for (int j = 0; j < new JSONArray(data.getJSONObject(i).getString("products")).length(); j++) {
-                        model = new CategoryListAdapter.CategoryListModel((new JSONArray(data.getJSONObject(i).getString("products")).getJSONObject(j).getString("name")));
-                        listData.add(model);
-                    }
                 }
-
             }
-
-            Log.d("result", String.valueOf(listData));
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
         listView.setAdapter(new CategoryListAdapter(getActivity().getApplicationContext(), listData));
+        Log.d("result", String.valueOf(listData));
     }
 
-    @Override
-    public void onVolleyFinished(String response) {
-        gettingFirstData = false;
+    private void volleyGetCategoryList(String url, final Map<String, String> params) {
 
-        try {
-            if (String.valueOf(new JSONObject(response).getString("status")).equals("200")) {
+        MyVolley.cancelOldPandingRequest();
+
+        StringRequest stringRequest = new StringRequest(Request.Method.DEPRECATED_GET_OR_POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                // If we could get data, we pass to another method to be easy to see :D
+
                 prepareListData(response);
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // If it has errors with Internet connection or web page
 
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+
+                // Here is to Encoder your query string params because we cannot push special characters through URL
+
+                String key = "", value = "";
+                HashMap<String, String> maps = new HashMap<>();
+
+                for (Map.Entry<String, String> entry : params.entrySet()) {
+
+                    key = entry.getKey();
+
+                    try {
+                        value = URLEncoder.encode(entry.getValue(), "utf-8");
+                    } catch (UnsupportedEncodingException e) {
+                        e.printStackTrace();
+                    }
+
+                    maps.put(key, value);
+                }
+
+                return maps;
+            }
+        };
+
+        MyVolley.getMyInstance().addToRequestQueue(stringRequest);
     }
 
-    @Override
-    public void onVolleyError(String message) {
-        GetFirstData();
-    }
 }

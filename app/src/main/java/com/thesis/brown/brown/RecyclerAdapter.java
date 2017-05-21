@@ -59,7 +59,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         return mItemName == null ? 0 : mItemName.size();
     }
 
-    private static class RecyclerViewItemHolder extends RecyclerView.ViewHolder{
+    private static class RecyclerViewItemHolder extends RecyclerView.ViewHolder {
         private final TextView mItemTextView;
         private final ImageView mItemImage;
 

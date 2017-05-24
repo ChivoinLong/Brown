@@ -1,5 +1,6 @@
 package com.thesis.brown.brown;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -48,6 +49,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mDrawerToggle.syncState();
 
         getSupportFragmentManager().beginTransaction().add(R.id.content_main, new MenuFragment()).commit();
+
+        Intent intent = new Intent(this, MainFacebookLogin.class);
+        startActivity(intent);
     }
 
     @Override

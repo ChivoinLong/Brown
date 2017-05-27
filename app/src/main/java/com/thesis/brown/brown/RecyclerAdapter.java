@@ -10,11 +10,12 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     private Context mContext;
-    private List<String> mItemName;
+    private List<String> mItemName, mItemPicURL;
     private List<Integer> mItemPic;
     private boolean isGrid = false;
 
@@ -22,6 +23,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         mContext = context;
         mItemName = itemList;
         mItemPic = itemPic;
+        this.isGrid = isGrid;
+    }
+
+    public RecyclerAdapter(Context mContext, List<String> mItemName, ArrayList<String> mItemPicURL, boolean isGrid) {
+        this.mContext = mContext;
+        this.mItemName = mItemName;
+        this.mItemPicURL = mItemPicURL;
         this.isGrid = isGrid;
     }
 
@@ -40,17 +48,36 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
         RecyclerViewItemHolder holder = (RecyclerViewItemHolder) viewHolder;
+        int itemPic;
+        String itemPicURL;
         String itemText = mItemName.get(position);
-        int itemPic = mItemPic.get(position);
-
         holder.setItemText(itemText);
-        if (isGrid) {
-            holder.setBackgroundImage(itemPic);
-        } else {
-            Picasso.with(mContext)
-                    .load(itemPic)
-                    .transform(new RoundImageTransform())
-                    .into(holder.mItemImage);
+
+        if(mItemPicURL != null){
+            itemPicURL = mItemPicURL.get(position);
+            if (isGrid) {
+                Picasso.with(mContext)
+                        .load(itemPicURL)
+                        .into(holder.mItemImage);
+            } else {
+                Picasso.with(mContext)
+                        .load(itemPicURL)
+                        .transform(new RoundImageTransform())
+                        .into(holder.mItemImage);
+            }
+        }
+        else{
+            itemPic = mItemPic.get(position);
+            if (isGrid) {
+                Picasso.with(mContext)
+                        .load(itemPic)
+                        .into(holder.mItemImage);
+            } else {
+                Picasso.with(mContext)
+                        .load(itemPic)
+                        .transform(new RoundImageTransform())
+                        .into(holder.mItemImage);
+            }
         }
     }
 

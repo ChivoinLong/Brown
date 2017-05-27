@@ -15,7 +15,6 @@ import com.thesis.brown.brown.ProductDetailActivity;
 import com.thesis.brown.brown.R;
 import com.thesis.brown.brown.RecyclerAdapter;
 import com.thesis.brown.brown.RecyclerItemOnClickListener;
-import com.thesis.brown.brown.SquareImageView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +23,7 @@ public class AllFragment extends Fragment implements RecyclerItemOnClickListener
     public static final String POSITION_KEY = "FragmentPositionKey";
     public static final String EXTRA_IMAGE = "com.thesis.brown.extraImage";
     public static final String EXTRA_TITLE = "com.thesis.brown.extraTitle";
+    RecyclerView recyclerView;
 
     public static AllFragment newInstance(Bundle args) {
         AllFragment fragment = new AllFragment();
@@ -34,7 +34,8 @@ public class AllFragment extends Fragment implements RecyclerItemOnClickListener
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_all, container, false);
-        RecyclerView recyclerView = (RecyclerView) root.findViewById(R.id.recyclerView);
+
+        recyclerView = (RecyclerView) root.findViewById(R.id.recyclerView);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
@@ -45,6 +46,7 @@ public class AllFragment extends Fragment implements RecyclerItemOnClickListener
         RecyclerAdapter recyclerAdapter = new RecyclerAdapter(getContext(), createItemList(50), createItemRes(50), false);
         recyclerView.setAdapter(recyclerAdapter);
         recyclerView.addOnItemTouchListener(new RecyclerItemOnClickListener(getContext(), recyclerView, this));
+
         return root;
     }
 
@@ -74,11 +76,28 @@ public class AllFragment extends Fragment implements RecyclerItemOnClickListener
 
     @Override
     public void onItemClick(View view, int position) {
-        SquareImageView imageView = (SquareImageView) view.findViewById(R.id.itemImage);
-
         Intent intent = new Intent(getContext(), ProductDetailActivity.class);
-//        intent.putExtra(EXTRA_IMAGE, ));
+
+        switch (position){
+            case 0:
+                intent.putExtra(EXTRA_IMAGE, R.drawable.caramel_latte);
+                break;
+            case 1:
+                intent.putExtra(EXTRA_IMAGE, R.drawable.caramel_macchiato);
+                break;
+            case 2:
+                intent.putExtra(EXTRA_IMAGE, R.drawable.iced_vanilla_latte);
+                break;
+            case 3:
+                intent.putExtra(EXTRA_IMAGE, R.drawable.iced_mocha);
+                break;
+            case 4:
+                intent.putExtra(EXTRA_IMAGE, R.drawable.iced_green_tea_latte);
+                break;
+        }
+
         intent.putExtra(EXTRA_TITLE, ((TextView) view.findViewById(R.id.itemName)).getText());
+
         startActivity(intent);
     }
 
@@ -86,4 +105,11 @@ public class AllFragment extends Fragment implements RecyclerItemOnClickListener
     public void onLongItemClick(View view, int position) {
 
     }
+
+
+
+
+
+
+
 }

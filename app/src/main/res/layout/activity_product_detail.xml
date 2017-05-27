@@ -17,11 +17,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
+            app:scrimVisibleHeightTrigger="150dp"
             app:contentScrim="?attr/colorPrimary"
-            app:expandedTitleMarginEnd="64dp"
-            app:expandedTitleMarginStart="48dp"
-            app:expandedTitleTextAppearance="@android:style/TextAppearance.DeviceDefault.Large"
-            app:layout_scrollFlags="scroll|snap|exitUntilCollapsed">
+            app:expandedTitleGravity="center|bottom"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <com.thesis.brown.brown.SquareImageView
                 android:id="@+id/image"

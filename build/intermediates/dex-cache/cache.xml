@@ -3,12 +3,39 @@
 
     <item
         is-multidex="false"
-        jar="/Users/lolzzlolzz/.android/build-cache/6bcc1dd71214f297bcb7a1fa68cb38a22e7fcb4d/output/jars/classes.jar"
+        jar="C:\Users\Obi-Voin Kenobi\.android\build-cache\589d0fb29a157a8de5e7d3357578ad127ea98c7d\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="ec3360994c4007c282a4b651723603e82682b601">
-        <dex dex="/Applications/A_Free/Brown/Brown/app/build/intermediates/pre-dexed/debug/classes_f9d3bf7cd64569f98d6d3de626a3541a94f910b4.jar" />
+        sha1="94ba691efc31bf53264db0716d9c9ec03843ea31">
+        <dex dex="C:\Users\Obi-Voin Kenobi\Desktop\Brown\app\build\intermediates\pre-dexed\debug\classes_5c468b116d4ac9bfb7270230de75fdaeef16004e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Obi-Voin Kenobi\.android\build-cache\8c1fd96e4dad13639df6c619306d5bc61178945f\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d5cbc9214ee567ea6ef56fb2707d48e58d240fc2">
+        <dex dex="C:\Users\Obi-Voin Kenobi\Desktop\Brown\app\build\intermediates\pre-dexed\debug\classes_4aa02fe84063ca73203e6c10aafd64b33e2b44c8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Obi-Voin Kenobi\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-tasks\1.4.0\d85884acf6810a3bbbecb587f239005cbc846dc4\bolts-tasks-1.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="C:\Users\Obi-Voin Kenobi\Desktop\Brown\app\build\intermediates\pre-dexed\debug\bolts-tasks-1.4.0_199d6ce504918df14c49a9dfec85b979b729ac41.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Obi-Voin Kenobi\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-applinks\1.4.0\8ad21bf21784dacce5f2043afb97218cc377e835\bolts-applinks-1.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8ad21bf21784dacce5f2043afb97218cc377e835">
+        <dex dex="C:\Users\Obi-Voin Kenobi\Desktop\Brown\app\build\intermediates\pre-dexed\debug\bolts-applinks-1.4.0_3248932045cff3e5b432116e0d3fe3d23607c3c5.jar" />
     </item>
 
 </items>

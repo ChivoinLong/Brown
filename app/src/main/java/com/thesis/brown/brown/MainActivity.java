@@ -12,11 +12,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
 
 import com.thesis.brown.brown.fragment.MenuFragment;
 import com.thesis.brown.brown.store_list.MainListStore;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
     ActionBarDrawerToggle mDrawerToggle;
     DrawerLayout mDrawerLayout;
@@ -33,6 +34,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         mNavigationView = (NavigationView) findViewById(R.id.nav_view);
         mNavigationView.setNavigationItemSelectedListener(this);
+        LinearLayout headerLayout = (LinearLayout) mNavigationView.getHeaderView(0);
+        headerLayout.setOnClickListener(this);
+
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerToggle = new ActionBarDrawerToggle(this,mDrawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close){
             @Override
@@ -50,8 +54,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         getSupportFragmentManager().beginTransaction().add(R.id.content_main, new MenuFragment()).commit();
 
-        Intent intent = new Intent(this, MainFacebookLogin.class);
-        startActivity(intent);
+//        Intent intent = new Intent(this, MainFacebookLogin.class);
+//        startActivity(intent);
+    }
+
+    @Override
+    public void onClick(View v) {
+        startActivity(new Intent(this, AccountLoginActivity.class));
     }
 
     @Override
@@ -83,4 +92,5 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             super.onBackPressed();
         }
     }
+
 }

@@ -17,10 +17,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
-            app:scrimVisibleHeightTrigger="150dp"
             app:contentScrim="?attr/colorPrimary"
             app:expandedTitleGravity="center|bottom"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:scrimVisibleHeightTrigger="150dp">
 
             <com.thesis.brown.brown.SquareImageView
                 android:id="@+id/image"
@@ -47,11 +47,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
+        android:paddingBottom="40dp"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:paddingTop="40dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <FrameLayout
+        <TextView
+            android:id="@+id/tvProductDesc"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="You’ve probably heard of Lorem Ipsum before – it’s the most-used dummy text excerpt out there. People use it because it has a fairly normal distribution of letters and words (making it look like normal English), but it’s also Latin, which means your average reader won’t get distracted by trying to read it. It’s perfect for showcasing design work as it should look when fleshed out with text, because it allows viewers to focus on the design work itself, instead of the text. It’s also a great way to showcase the functionality of programs like word processors, font types, and more."
+            android:textAppearance="@android:style/TextAppearance"
+            android:textColor="@color/colorPrimaryDark" />
 
     </android.support.v4.widget.NestedScrollView>
 </android.support.design.widget.CoordinatorLayout>

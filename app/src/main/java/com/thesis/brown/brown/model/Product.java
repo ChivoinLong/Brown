@@ -46,4 +46,5 @@ public class Product {
     public void set_price(HashMap<String, Double> _price) {
         this._price = _price;
     }
+
 }

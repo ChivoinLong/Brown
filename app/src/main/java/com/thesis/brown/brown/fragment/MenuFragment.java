@@ -39,9 +39,9 @@ public class MenuFragment extends Fragment {
     private class MyViewPagerAdapter extends FragmentPagerAdapter {
 
         final String[] tabNames = {
-                CategoryFragment.class.getSimpleName(),
-                FeaturedFragment.class.getSimpleName(),
-                AllFragment.class.getSimpleName()
+                CategoryFragment.TAB_NAME,
+                FeaturedFragment.TAB_NAME,
+                AllFragment.TAB_NAME
         };
 
         public MyViewPagerAdapter(FragmentManager childFragmentManager) {

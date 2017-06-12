@@ -5,12 +5,14 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/txtNameCateRow"
+        android:id="@+id/txtCategoryName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="190px"
-        android:padding="10px"
+        android:paddingBottom="15dp"
+        android:paddingLeft="60dp"
+        android:paddingTop="15dp"
         android:text="Hello"
-        android:textStyle="italic" />
+        android:textColor="@color/colorPrimaryDark" />
+
 
 </LinearLayout>

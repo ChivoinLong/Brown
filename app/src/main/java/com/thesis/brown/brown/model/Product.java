@@ -7,6 +7,25 @@ public class Product {
     private String _id, _name, _desc, _imgUrl;
     private HashMap<String, Double> _price;
 
+    public Product() {
+
+    }
+
+    public Product(String _id, String _name, String _desc, String _imgUrl) {
+        this._id = _id;
+        this._name = _name;
+        this._desc = _desc;
+        this._imgUrl = _imgUrl;
+    }
+
+    public Product(String _id, String _name, String _desc, String _imgUrl, HashMap<String, Double> _price) {
+        this._id = _id;
+        this._name = _name;
+        this._desc = _desc;
+        this._imgUrl = _imgUrl;
+        this._price = _price;
+    }
+
     public String get_id() {
         return _id;
     }

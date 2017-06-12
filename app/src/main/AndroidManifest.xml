@@ -20,12 +20,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainShowDetailStore" />
-        <activity android:name=".ProductDetailActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
-        </activity>
-        <activity android:name=".AccountLoginActivity">
+        <activity android:name=".ProductDetailActivity" />
+        <activity android:name=".SubcategoryActivity" />
+        <activity android:name=".AccountSignInActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />

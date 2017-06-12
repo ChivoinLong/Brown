@@ -9,12 +9,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:lines="1"
+        android:paddingBottom="12.5dp"
         android:paddingLeft="60dp"
-        android:paddingBottom="15dp"
-        android:paddingTop="15dp"
+        android:paddingTop="12.5dp"
         android:text="Drinks"
-        android:textStyle="italic"
         android:textColor="#000000"
+        android:textStyle="italic"
         />
 
 </LinearLayout>

@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public void onClick(View v) {
-        startActivity(new Intent(this, AccountLoginActivity.class));
+        startActivity(new Intent(this, AccountSignInActivity.class));
     }
 
     @Override

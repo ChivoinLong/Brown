@@ -22,7 +22,9 @@ public class MainListStore extends Fragment {
 
     ListView lisStoreList;
     ListStoreListAdp adp;
-    ArrayList<ListStoreListModel> models;
+
+    //set the models ArrayList to be data ready variable.
+    ArrayList<ListStoreListModel> models = getListData();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -35,7 +37,7 @@ public class MainListStore extends Fragment {
 
         lisStoreList = (ListView) getActivity().findViewById(R.id.lisStoreList);
 
-        getListData();
+
         adp = new ListStoreListAdp(getActivity(), R.layout.lis_store_list, models);
         lisStoreList.setAdapter(adp);
 
@@ -61,8 +63,10 @@ public class MainListStore extends Fragment {
         });
     }
 
-    void getListData (){
-        models = new ArrayList<>();
+
+    //work : Return list of stores
+    ArrayList<ListStoreListModel> getListData (){
+        ArrayList<ListStoreListModel> models = new ArrayList<>();
 
         models.add(new ListStoreListModel("Brown 4 (Riverside)", "#1 st. 98 corner Sisowath Quay (adjacent to KFC Riverside).", "(855) 10 917 907", "www.facebook.com/browncoffee.kh", "imgURL", "06:30 AM - 09:00 PM"));
         models.add(new ListStoreListModel("Brown 4 (Riverside)", "#1 st. 98 corner Sisowath Quay (adjacent to KFC Riverside).", "(855) 10 917 907", "www.facebook.com/browncoffee.kh", "imgURL", "06:30 AM - 09:00 PM"));
@@ -73,5 +77,8 @@ public class MainListStore extends Fragment {
         models.add(new ListStoreListModel("Brown 4 (Riverside)", "#1 st. 98 corner Sisowath Quay (adjacent to KFC Riverside).", "(855) 10 917 907", "www.facebook.com/browncoffee.kh", "imgURL", "06:30 AM - 09:00 PM"));
         models.add(new ListStoreListModel("Brown 4 (Riverside)", "#1 st. 98 corner Sisowath Quay (adjacent to KFC Riverside).", "(855) 10 917 907", "www.facebook.com/browncoffee.kh", "imgURL", "06:30 AM - 09:00 PM"));
         models.add(new ListStoreListModel("Brown 4 (Riverside)", "#1 st. 98 corner Sisowath Quay (adjacent to KFC Riverside).", "(855) 10 917 907", "www.facebook.com/browncoffee.kh", "imgURL", "06:30 AM - 09:00 PM"));
+        return models;
     }
+
+
 }

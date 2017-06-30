@@ -50,6 +50,7 @@ public class ListStoreListAdp extends ArrayAdapter<ListStoreListModel> {
 
         ListStoreListModel listStoreListModel = getItem(position);
 
+        listStoreListHolder.imgLocation.setImageResource(listStoreListModel.getImage());
         listStoreListHolder.txtTitle.setText(listStoreListModel.getTitle());
         listStoreListHolder.txtRoad.setText(listStoreListModel.getRoad());
         listStoreListHolder.txtPhone.setText(listStoreListModel.getPhone());

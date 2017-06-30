@@ -4,21 +4,22 @@ import java.io.Serializable;
 
 public class ListStoreListModel implements Serializable{
 
-    private String title, road, phone, link, imgURL, openingTime;
+    private String title, road, phone, link, openingTime;
+    private int imageResID;
     private double longitude , latitude;
 
-
-
-    public ListStoreListModel(String title, String road, String phone, String link, String imgURL, String openingTime, double longitude, double latitude) {
+    public ListStoreListModel(String title, String road, String phone, String link, String openingTime, int imageResID, double latitude, double longitude) {
         this.title = title;
         this.road = road;
         this.phone = phone;
         this.link = link;
-        this.imgURL = imgURL;
         this.openingTime = openingTime;
-        this.longitude = longitude;
+        this.imageResID = imageResID;
         this.latitude = latitude;
+        this.longitude = longitude;
     }
+
+
 
 
     public String getTitle() {
@@ -37,8 +38,8 @@ public class ListStoreListModel implements Serializable{
         return link;
     }
 
-    public String getImgURL() {
-        return imgURL;
+    public int getImage() {
+        return imageResID;
     }
 
     public String getOpeningTime() {

@@ -52,7 +52,7 @@ public class MainListStore extends Fragment {
                     object.put("road", models.get(i).getRoad());
                     object.put("phone", models.get(i).getPhone());
                     object.put("link", models.get(i).getLink());
-                    object.put("img", models.get(i).getImgURL());
+                    object.put("img", models.get(i).getImage());
                     object.put("opening", models.get(i).getOpeningTime());
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -68,15 +68,12 @@ public class MainListStore extends Fragment {
     ArrayList<ListStoreListModel> getListData (){
         ArrayList<ListStoreListModel> models = new ArrayList<>();
 
-        models.add(new ListStoreListModel("Brown 4 (Riverside)", "#1 st. 98 corner Sisowath Quay (adjacent to KFC Riverside).", "(855) 10 917 907", "www.facebook.com/browncoffee.kh", "imgURL", "06:30 AM - 09:00 PM"));
-        models.add(new ListStoreListModel("Brown 4 (Riverside)", "#1 st. 98 corner Sisowath Quay (adjacent to KFC Riverside).", "(855) 10 917 907", "www.facebook.com/browncoffee.kh", "imgURL", "06:30 AM - 09:00 PM"));
-        models.add(new ListStoreListModel("Brown 4 (Riverside)", "#1 st. 98 corner Sisowath Quay (adjacent to KFC Riverside).", "(855) 10 917 907", "www.facebook.com/browncoffee.kh", "imgURL", "06:30 AM - 09:00 PM"));
-        models.add(new ListStoreListModel("Brown 4 (Riverside)", "#1 st. 98 corner Sisowath Quay (adjacent to KFC Riverside).", "(855) 10 917 907", "www.facebook.com/browncoffee.kh", "imgURL", "06:30 AM - 09:00 PM"));
-        models.add(new ListStoreListModel("Brown 4 (Riverside)", "#1 st. 98 corner Sisowath Quay (adjacent to KFC Riverside).", "(855) 10 917 907", "www.facebook.com/browncoffee.kh", "imgURL", "06:30 AM - 09:00 PM"));
-        models.add(new ListStoreListModel("Brown 4 (Riverside)", "#1 st. 98 corner Sisowath Quay (adjacent to KFC Riverside).", "(855) 10 917 907", "www.facebook.com/browncoffee.kh", "imgURL", "06:30 AM - 09:00 PM"));
-        models.add(new ListStoreListModel("Brown 4 (Riverside)", "#1 st. 98 corner Sisowath Quay (adjacent to KFC Riverside).", "(855) 10 917 907", "www.facebook.com/browncoffee.kh", "imgURL", "06:30 AM - 09:00 PM"));
-        models.add(new ListStoreListModel("Brown 4 (Riverside)", "#1 st. 98 corner Sisowath Quay (adjacent to KFC Riverside).", "(855) 10 917 907", "www.facebook.com/browncoffee.kh", "imgURL", "06:30 AM - 09:00 PM"));
-        models.add(new ListStoreListModel("Brown 4 (Riverside)", "#1 st. 98 corner Sisowath Quay (adjacent to KFC Riverside).", "(855) 10 917 907", "www.facebook.com/browncoffee.kh", "imgURL", "06:30 AM - 09:00 PM"));
+        models.add(new ListStoreListModel("Brown Pencil","#17, St. 214 (Near Pencil Supermarket and ICS), Boeng Raing, Khan Daun Penh, Phnom Penh, Kingdom of Cambodia", "069 697 079", "www.facebook.com/browncoffee.kh" ,"Everyday  06:30 am - 08:00 pm",R.drawable.brown_pencil,11.561341,104.925884));
+        models.add(new ListStoreListModel("Brown Pencil","#17, St. 214 (Near Pencil Supermarket and ICS), Boeng Raing, Khan Daun Penh, Phnom Penh, Kingdom of Cambodia", "069 697 079", "www.facebook.com/browncoffee.kh" ,"Everyday  06:30 am - 08:00 pm",R.drawable.brown_pencil,11.561341,104.925884));
+        models.add(new ListStoreListModel("Brown Pencil","#17, St. 214 (Near Pencil Supermarket and ICS), Boeng Raing, Khan Daun Penh, Phnom Penh, Kingdom of Cambodia", "069 697 079", "www.facebook.com/browncoffee.kh" ,"Everyday  06:30 am - 08:00 pm",R.drawable.brown_pencil,11.561341,104.925884));
+        models.add(new ListStoreListModel("Brown Pencil","#17, St. 214 (Near Pencil Supermarket and ICS), Boeng Raing, Khan Daun Penh, Phnom Penh, Kingdom of Cambodia", "069 697 079", "www.facebook.com/browncoffee.kh" ,"Everyday  06:30 am - 08:00 pm",R.drawable.brown_pencil,11.561341,104.925884));
+        models.add(new ListStoreListModel("Brown Pencil","#17, St. 214 (Near Pencil Supermarket and ICS), Boeng Raing, Khan Daun Penh, Phnom Penh, Kingdom of Cambodia", "069 697 079", "www.facebook.com/browncoffee.kh" ,"Everyday  06:30 am - 08:00 pm",R.drawable.brown_pencil,11.561341,104.925884));
+        models.add(new ListStoreListModel("Brown Pencil","#17, St. 214 (Near Pencil Supermarket and ICS), Boeng Raing, Khan Daun Penh, Phnom Penh, Kingdom of Cambodia", "069 697 079", "www.facebook.com/browncoffee.kh" ,"Everyday  06:30 am - 08:00 pm",R.drawable.brown_pencil,11.561341,104.925884));
         return models;
     }
 

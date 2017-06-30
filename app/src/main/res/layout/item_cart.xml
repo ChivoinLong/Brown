@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:weightSum="10">
+
+
+    <com.thesis.brown.brown.SquareImageView
+        android:id="@+id/itemImage"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:contentDescription="Item Image"
+        android:padding="5dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/caramel_latte" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="7"
+        android:orientation="vertical"
+        android:weightSum="10">
+
+        <TextView
+            android:id="@+id/itemName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="5"
+            android:text="Item Name"
+            android:textAllCaps="true"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</LinearLayout>

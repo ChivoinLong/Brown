@@ -22,7 +22,9 @@
         <activity android:name=".MainShowDetailStore" />
         <activity android:name=".ProductDetailActivity" />
         <activity android:name=".SubcategoryActivity" />
-        <activity android:name=".AccountSignInActivity">
+        <activity
+            android:name=".authentication.AccountSignInActivity"
+            android:windowSoftInputMode="stateHidden">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
@@ -30,6 +32,12 @@
                 android:name="com.facebook.sdk.ApplicationId"
                 android:value="@string/facebook_app_id" />
         </activity>
+        <activity
+            android:name=".authentication.AccountSignUpActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".authentication.AccountForgotPasswordActivity"
+            android:windowSoftInputMode="stateHidden" />
         <activity android:name=".MainFacebookLogin" />
         <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
     </application>

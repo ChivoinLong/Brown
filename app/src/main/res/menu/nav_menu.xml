@@ -4,12 +4,17 @@
 
     <item
         android:id="@+id/nav_menu"
-        android:title="MENU"
         android:icon="@drawable/ic_cafe_b"
+        android:title="MENU"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/nav_shop_location"
-        android:title="SHOP LOCATION"
         android:icon="@drawable/ic_location"
+        android:title="SHOP LOCATION"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/nav_my_cart"
+        android:icon="@drawable/ic_cart"
+        android:title="MY CART"
         app:showAsAction="ifRoom" />
 </menu>

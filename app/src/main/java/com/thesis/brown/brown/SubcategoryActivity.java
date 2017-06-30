@@ -40,15 +40,13 @@ public class SubcategoryActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        if (db.getProductCount() == 0) {
-//            loadProducts();
-        } else {
-//            products = db.getAllProducts();
-            Log.d("123", "onResume: " + products.size());
-            RecyclerAdapter recyclerAdapter = new RecyclerAdapter(this, this.products, false);
-            recyclerView.setAdapter(recyclerAdapter);
-            progressBar.setVisibility(View.GONE);
-        }
+
+        products = db.getAllProducts(getIntent().getStringExtra("CATEGORY_ID"));
+        Log.d("123", "onResume: " + products.size());
+        RecyclerAdapter recyclerAdapter = new RecyclerAdapter(this, this.products, false);
+        recyclerView.setAdapter(recyclerAdapter);
+        progressBar.setVisibility(View.GONE);
+
     }
 
     @Override

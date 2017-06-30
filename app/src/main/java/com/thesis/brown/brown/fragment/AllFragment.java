@@ -73,15 +73,15 @@ public class AllFragment extends Fragment implements RecyclerItemOnClickListener
     @Override
     public void onResume() {
         super.onResume();
-        if (db.getProductCount() == 0) {
+//        if (db.getProductCount() == 0) {
             loadProducts();
-        } else {
+//        } else {
 //            products = db.getAllProducts();
-            Log.d("123", "onResume: " + products.size());
-            RecyclerAdapter recyclerAdapter = new RecyclerAdapter(getContext(), this.products, false);
-            recyclerView.setAdapter(recyclerAdapter);
-            progressBar.setVisibility(View.GONE);
-        }
+//            Log.d("123", "onResume: " + products.size());
+//            RecyclerAdapter recyclerAdapter = new RecyclerAdapter(getContext(), this.products, false);
+//            recyclerView.setAdapter(recyclerAdapter);
+//            progressBar.setVisibility(View.GONE);
+//        }
     }
 
     @Override

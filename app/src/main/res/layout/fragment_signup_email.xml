@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:stretchColumns="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:paddingLeft="25dp"
+                        android:paddingRight="25dp"
+                        android:src="@drawable/browncoffeelogo" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="25dp">
+
+                    <com.facebook.login.widget.LoginButton
+                        android:id="@+id/login_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="25dp">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorPrimaryDark" />
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/layoutTvName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="10dp">
+
+                        <EditText
+                            android:id="@+id/etName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Full Name"
+                            android:imeOptions="actionNext"
+                            android:inputType="textCapWords"
+                            android:maxLines="1"
+                            android:nextFocusRight="@+id/etEmail" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/layoutTvEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/layoutTvName"
+                        android:layout_marginTop="10dp">
+
+                        <EditText
+                            android:id="@+id/etEmail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Email"
+                            android:imeOptions="actionNext"
+                            android:inputType="textEmailAddress"
+                            android:maxLines="1"
+                            android:nextFocusRight="@+id/etPassword" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/layoutTvPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/layoutTvEmail"
+                        android:layout_marginTop="10dp"
+                        app:passwordToggleEnabled="true">
+
+                        <EditText
+                            android:id="@+id/etPassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Password"
+                            android:imeOptions="actionNext"
+                            android:inputType="textPassword"
+                            android:maxLines="1"
+                            android:nextFocusRight="@+id/etConfirmPassword" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/layoutTvConfirmPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/layoutTvPassword"
+                        android:layout_marginTop="10dp"
+                        app:passwordToggleEnabled="true">
+
+                        <EditText
+                            android:id="@+id/etConfirmPassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Confirm Password"
+                            android:imeOptions="actionDone"
+                            android:inputType="textPassword"
+                            android:maxLines="1"
+                            android:nextFocusRight="@+id/btnSignUp" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <Button
+                        android:id="@+id/btnSignUp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/layoutTvConfirmPassword"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/colorPrimary"
+                        android:text="Create Account"
+                        android:textColor="@android:color/white" />
+
+                    <TextView
+                        android:id="@+id/tvForgetPwd"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/btnSignUp"
+                        android:layout_marginTop="10dp"
+                        android:text="Forget Your Password?" />
+                </RelativeLayout>
+            </LinearLayout>
+        </TableLayout>
+    </ScrollView>
+
+</RelativeLayout>

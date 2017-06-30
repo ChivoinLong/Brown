@@ -104,7 +104,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         // Select All Query
         String selectQuery = "SELECT  * FROM " + TABLE_PRODUCTS;
         if (categoryId != null) {
-            selectQuery += " WHERE ";
+            selectQuery += " WHERE " + KEY_CATEGORY_TYPE + " LIKE '" + categoryId
+                    + "' OR " + KEY_PARENT_CATEGORY + " LIKE '" + categoryId + "'";
         }
 
         SQLiteDatabase db = this.getWritableDatabase();

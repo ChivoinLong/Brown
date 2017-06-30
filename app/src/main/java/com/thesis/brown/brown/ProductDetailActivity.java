@@ -10,7 +10,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
@@ -65,8 +64,8 @@ public class ProductDetailActivity extends AppCompatActivity {
             public void onError() { }
         });
 
-        TextView tvDesc = (TextView) findViewById(R.id.tvProductDesc);
-        tvDesc.setText(selectedProduct.get_desc());
+//        TextView tvDesc = (TextView) findViewById(R.id.tvProductDesc);
+//        tvDesc.setText(selectedProduct.get_desc());
     }
 
     @Override

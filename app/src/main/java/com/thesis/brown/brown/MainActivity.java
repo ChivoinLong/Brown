@@ -14,7 +14,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.thesis.brown.brown.authentication.AccountSignInActivity;
 import com.thesis.brown.brown.fragment.MenuFragment;
+import com.thesis.brown.brown.fragment.MyCartFragment;
 import com.thesis.brown.brown.store_list.MainListStore;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
@@ -77,6 +79,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_shop_location:
                 setTitle("Shop Location");
                 manager.beginTransaction().replace(R.id.content_main, new MainListStore()).commit();
+                break;
+            case R.id.nav_my_cart:
+                setTitle("My Cart");
+                manager.beginTransaction().replace(R.id.content_main, new MyCartFragment()).commit();
                 break;
         }
 

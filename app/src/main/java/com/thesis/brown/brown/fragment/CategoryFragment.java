@@ -111,12 +111,10 @@ public class CategoryFragment extends Fragment{
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Log.d("click", "\n Type : " + allCategories.get(i).getType() + "\n Name : " + allCategories.get(i).getName() + "\n ID : " + allCategories.get(i).getId());
                 // We can understand what we are gonna get detail whether cate or sub-cate
-                if (allCategories.get(i).getType().equalsIgnoreCase("subcategory")) {
-                    Intent intent = new Intent(getActivity().getApplicationContext(), SubcategoryActivity.class);
-                    intent.putExtra("CATEGORY_ID", allCategories.get(i).getId());
-                    startActivity(intent);
-                    Toast.makeText(getActivity().getApplicationContext(), allCategories.get(i).getName(), Toast.LENGTH_SHORT).show();
-                }
+                Intent intent = new Intent(getActivity().getApplicationContext(), SubcategoryActivity.class);
+                intent.putExtra("CATEGORY_ID", allCategories.get(i).getId());
+                startActivity(intent);
+                Toast.makeText(getActivity().getApplicationContext(), allCategories.get(i).getName(), Toast.LENGTH_SHORT).show();
             }
         });
     }

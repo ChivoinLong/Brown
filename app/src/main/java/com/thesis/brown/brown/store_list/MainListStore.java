@@ -46,18 +46,17 @@ public class MainListStore extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(getActivity(), MainShowDetailStore.class);
 
-                JSONObject object = new JSONObject();
-                try {
-                    object.put("title", models.get(i).getTitle());
-                    object.put("road", models.get(i).getRoad());
-                    object.put("phone", models.get(i).getPhone());
-                    object.put("link", models.get(i).getLink());
-                    object.put("img", models.get(i).getImage());
-                    object.put("opening", models.get(i).getOpeningTime());
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                intent.putExtra("data", String.valueOf(object));
+                Bundle storeDataBundle = new Bundle();
+                storeDataBundle.putString("name",models.get(i).getTitle());
+                storeDataBundle.putString("address",models.get(i).getRoad());
+                storeDataBundle.putString("phone",models.get(i).getPhone());
+                storeDataBundle.putString("time",models.get(i).getOpeningTime());
+                storeDataBundle.putInt("storeImage",models.get(i).getImage());
+                storeDataBundle.putDouble("latitude",models.get(i).getLatitude());
+                storeDataBundle.putDouble("longitude",models.get(i).getLongitude());
+
+                intent.putExtra("storeData", storeDataBundle);
+
                 startActivity(intent);
             }
         });

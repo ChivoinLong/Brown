@@ -1,5 +1,6 @@
 package com.thesis.brown.brown;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -17,6 +18,7 @@ public class MainShowDetailStore extends AppCompatActivity {
     //Location Data For Google Map
     double storeLocationLatitude;
     double storeLocationLongitude;
+    String storeName;
 
     //View
     TextView textViewStoreName;
@@ -32,7 +34,7 @@ public class MainShowDetailStore extends AppCompatActivity {
 
         //store data
         Bundle storeDataBundle = getIntent().getBundleExtra("storeData");
-        String storeName = storeDataBundle.getString("name");
+        storeName = storeDataBundle.getString("name");
         String storeAddress = storeDataBundle.getString("address");
         String storePhoneNumber = storeDataBundle.getString("phone");
         String storeOpenTime = storeDataBundle.getString("time");
@@ -41,6 +43,7 @@ public class MainShowDetailStore extends AppCompatActivity {
         //location data
         storeLocationLatitude = storeDataBundle.getDouble("latitude");
         storeLocationLongitude = storeDataBundle.getDouble("longitude");
+
 
         //Views interraction..
         textViewStoreName = (TextView) findViewById(R.id.textViewStoreName);
@@ -62,5 +65,17 @@ public class MainShowDetailStore extends AppCompatActivity {
 
     //When ViewOnTheMap Button was Clicked
     public void onButtonViewOnTheMapOnClick(View view) {
+
+        Intent goToMapActivityIntent = new Intent(this,StoreLocationActivity.class);
+
+        Bundle locationDataBundle = new Bundle();
+        locationDataBundle.putDouble("latitude",storeLocationLatitude);
+        locationDataBundle.putDouble("longitude",storeLocationLongitude);
+        locationDataBundle.putString("name",storeName);
+
+        goToMapActivityIntent.putExtra("locationData",locationDataBundle);
+
+        startActivity(goToMapActivityIntent);
+
     }
 }

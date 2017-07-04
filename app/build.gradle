@@ -38,5 +38,6 @@ dependencies {
     compile 'com.mcxiaoke.volley:library:1.0.19'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.facebook.android:facebook-android-sdk:4.22.1'
+    compile 'com.google.android.gms:play-services-maps:11.0.1'
     testCompile 'junit:junit:4.12'
 }

@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -42,6 +43,7 @@ public class AllFragment extends Fragment implements RecyclerItemOnClickListener
     public static final String EXTRA_ID = "com.thesis.brown.extraID";
     RecyclerView recyclerView;
     ProgressBar progressBar;
+    Button btnRefresh;
     ArrayList<Product> products = null;
     DatabaseHandler db;
 
@@ -58,6 +60,15 @@ public class AllFragment extends Fragment implements RecyclerItemOnClickListener
         db = new DatabaseHandler(getActivity().getApplicationContext());
         recyclerView = (RecyclerView) root.findViewById(R.id.recyclerView);
         progressBar = (ProgressBar) root.findViewById(R.id.progress_bar);
+        btnRefresh = (Button) root.findViewById(R.id.btnRefresh);
+        btnRefresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loadProducts();
+                progressBar.setVisibility(View.VISIBLE);
+                btnRefresh.setVisibility(View.GONE);
+            }
+        });
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
@@ -117,7 +128,9 @@ public class AllFragment extends Fragment implements RecyclerItemOnClickListener
             @Override
             public void onErrorResponse(VolleyError error) {
                 // If it has errors with Internet connection or web page
-                Toast.makeText(getActivity().getApplicationContext(), "No Internet Connection", Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity().getApplicationContext(), "No Internet Connection", Toast.LENGTH_SHORT).show();
+                progressBar.setVisibility(View.GONE);
+                btnRefresh.setVisibility(View.VISIBLE);
             }
         }) {
             @Override

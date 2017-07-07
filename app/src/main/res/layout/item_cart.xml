@@ -2,6 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/trasparent_black"
+    android:padding="5dp"
     android:weightSum="10">
 
 
@@ -10,8 +12,6 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="3"
-        android:contentDescription="Item Image"
-        android:padding="5dp"
         android:scaleType="centerCrop"
         android:src="@drawable/caramel_latte" />
 
@@ -20,18 +20,66 @@
         android:layout_height="match_parent"
         android:layout_weight="7"
         android:orientation="vertical"
+        android:padding="10dp"
         android:weightSum="10">
 
         <TextView
             android:id="@+id/itemName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:layout_weight="5"
+            android:gravity="center_vertical"
             android:text="Item Name"
             android:textAllCaps="true"
             android:textColor="@color/colorAccent"
             android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5"
+            android:background="@color/colorPrimary"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <com.thesis.brown.brown.SquareImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:scaleType="centerCrop"
+                android:src="@drawable/brown_51" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="6"
+                android:orientation="vertical"
+                android:weightSum="10">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="5"
+                    android:gravity="center"
+                    android:text="Unit Price"
+                    android:textColor="@android:color/white" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="5"
+                    android:gravity="center"
+                    android:text="Quantity"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+
+            <com.thesis.brown.brown.SquareImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:scaleType="centerCrop"
+                android:src="@drawable/brown_51" />
+        </LinearLayout>
 
     </LinearLayout>
 

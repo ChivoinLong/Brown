@@ -144,15 +144,12 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Don't have an account? " />
-
-                <TextView
                     android:id="@+id/tvSignUp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Sign up!" />
+                    android:padding="10dp"
+                    android:text="Don't have an account? Sign up!"
+                    android:textStyle="bold" />
             </LinearLayout>
 
         </RelativeLayout>

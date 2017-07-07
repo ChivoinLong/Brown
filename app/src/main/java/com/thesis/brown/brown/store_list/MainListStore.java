@@ -13,9 +13,6 @@ import android.widget.ListView;
 import com.thesis.brown.brown.MainShowDetailStore;
 import com.thesis.brown.brown.R;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
 
 public class MainListStore extends Fragment {
@@ -67,7 +64,7 @@ public class MainListStore extends Fragment {
     ArrayList<ListStoreListModel> getListData (){
         ArrayList<ListStoreListModel> models = new ArrayList<>();
 
-        models.add(new ListStoreListModel("Brown Pencil","#17, St. 214 (Near Pencil Supermarket and ICS), Boeng Raing, Khan Daun Penh, Phnom Penh, Kingdom of Cambodia", "069 697 079", "www.facebook.com/browncoffee.kh" ,"Everyday  06:30 am - 08:00 pm",R.drawable.brown_pencil,11.561341,104.925884));
+        models.add(new ListStoreListModel("Brown Pencil", "#17, St. 214 (Near Pencil Supermarket and ICS), Boeng Raing, Khan Daun Penh, Phnom Penh, Cambodia", "069 697 079", "www.facebook.com/browncoffee.kh", "Everyday  06:30 am - 08:00 pm", R.drawable.brown_pencil, 11.561341, 104.925884));
         models.add(new ListStoreListModel("Brown 51","St. 51 Corner 302 Near British International School, Boengkengkang 1, Khan Chamkarmorn, Phnom Penh, Cambodia", "069 737 567", "www.facebook.com/browncoffee.kh" ,"Everyday   06:30 am - 09:00 pm",R.drawable.brown_51,11.553156,104.926638));
         models.add(new ListStoreListModel("Brown Riverside","#1 st. 98 corner Sisowath Quay (adjacent to KFC Riverside), Wat Phnom, Khan Daun Penh, Phnom Penh, Cambodia", "010 917 907", "www.facebook.com/browncoffee.kh" ,"Everyday   06:30 am - 09:00 pm",R.drawable.brown_riverside,11.576085,104.926204));
         models.add(new ListStoreListModel("Brown IFL","#114 Russian Blvd corner st.259, Tuk Laak 1, Khan Toulkok, Phnom Penh, Cambodia", "098 555 221", "www.facebook.com/browncoffee.kh" ,"Everyday   06:30 am - 09:00 pm",R.drawable.brown_ifl,11.568237,104.894406));

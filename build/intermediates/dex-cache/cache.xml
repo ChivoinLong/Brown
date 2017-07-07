@@ -2,40 +2,148 @@
 <items version="2" >
 
     <item
-        is-multidex="false"
-        jar="C:\Users\Obi-Voin Kenobi\.android\build-cache\589d0fb29a157a8de5e7d3357578ad127ea98c7d\output\jars\classes.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="C:\Users\Obi-Voin Kenobi\Desktop\Brown\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="94ba691efc31bf53264db0716d9c9ec03843ea31">
-        <dex dex="C:\Users\Obi-Voin Kenobi\Desktop\Brown\app\build\intermediates\pre-dexed\debug\classes_5c468b116d4ac9bfb7270230de75fdaeef16004e.jar" />
+        sha1="99fc648d9a7fa78988735035895029d9f46c6555">
+        <dex dex="C:\Users\Obi-Voin Kenobi\Desktop\Brown\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_0153383630790b2b9a32fe2db26d87139188b097\classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="C:\Users\Obi-Voin Kenobi\.android\build-cache\8c1fd96e4dad13639df6c619306d5bc61178945f\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d5cbc9214ee567ea6ef56fb2707d48e58d240fc2">
-        <dex dex="C:\Users\Obi-Voin Kenobi\Desktop\Brown\app\build\intermediates\pre-dexed\debug\classes_4aa02fe84063ca73203e6c10aafd64b33e2b44c8.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Obi-Voin Kenobi\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-tasks\1.4.0\d85884acf6810a3bbbecb587f239005cbc846dc4\bolts-tasks-1.4.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
-        <dex dex="C:\Users\Obi-Voin Kenobi\Desktop\Brown\app\build\intermediates\pre-dexed\debug\bolts-tasks-1.4.0_199d6ce504918df14c49a9dfec85b979b729ac41.jar" />
-    </item>
-    <item
-        is-multidex="false"
+        is-multidex="true"
         jar="C:\Users\Obi-Voin Kenobi\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-applinks\1.4.0\8ad21bf21784dacce5f2043afb97218cc377e835\bolts-applinks-1.4.0.jar"
-        jumboMode="false"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="8ad21bf21784dacce5f2043afb97218cc377e835">
-        <dex dex="C:\Users\Obi-Voin Kenobi\Desktop\Brown\app\build\intermediates\pre-dexed\debug\bolts-applinks-1.4.0_3248932045cff3e5b432116e0d3fe3d23607c3c5.jar" />
+        <dex dex="C:\Users\Obi-Voin Kenobi\Desktop\Brown\app\build\intermediates\transforms\dex\debug\folders\1000\10\bolts-applinks-1.4.0_3248932045cff3e5b432116e0d3fe3d23607c3c5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Obi-Voin Kenobi\.android\build-cache\582ae6397814422f94224ce9b17bb2bdb17647f9\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="21160c044ba984fb2e33b833c89a496becb85cfd">
+        <dex dex="C:\Users\Obi-Voin Kenobi\Desktop\Brown\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_c088f828b5c90bb37946beb16db702289dd2b340\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Obi-Voin Kenobi\.android\build-cache\b6a11b4a4040f8319602243eac74bcead69c1369\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6178e31397c24ab1bfc09766832cdcf519621eb7">
+        <dex dex="C:\Users\Obi-Voin Kenobi\Desktop\Brown\app\build\intermediates\pre-dexed\debug\classes_b38f4561d3a6b624c5821be85b2230836ebf1b8d.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Obi-Voin Kenobi\.android\build-cache\b6a11b4a4040f8319602243eac74bcead69c1369\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6178e31397c24ab1bfc09766832cdcf519621eb7">
+        <dex dex="C:\Users\Obi-Voin Kenobi\Desktop\Brown\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_b38f4561d3a6b624c5821be85b2230836ebf1b8d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Obi-Voin Kenobi\.android\build-cache\589d0fb29a157a8de5e7d3357578ad127ea98c7d\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="94ba691efc31bf53264db0716d9c9ec03843ea31">
+        <dex dex="C:\Users\Obi-Voin Kenobi\Desktop\Brown\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_5c468b116d4ac9bfb7270230de75fdaeef16004e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Obi-Voin Kenobi\.android\build-cache\8c1fd96e4dad13639df6c619306d5bc61178945f\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d5cbc9214ee567ea6ef56fb2707d48e58d240fc2">
+        <dex dex="C:\Users\Obi-Voin Kenobi\Desktop\Brown\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_4aa02fe84063ca73203e6c10aafd64b33e2b44c8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Obi-Voin Kenobi\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.5.2\7446d06ec8d4f7ffcc53f1da37c95f200dcb9387\picasso-2.5.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="C:\Users\Obi-Voin Kenobi\Desktop\Brown\app\build\intermediates\transforms\dex\debug\folders\1000\10\picasso-2.5.2_3d4f9133f68d9e6ff28eb237732e95db1fa95000\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Obi-Voin Kenobi\Desktop\Brown\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="12920f9016b8b05acbc2af7cdc13cef6946fe7d3">
+        <dex dex="C:\Users\Obi-Voin Kenobi\Desktop\Brown\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_ad428519ad968908fe2836be44f49d8bd86b2e57\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Obi-Voin Kenobi\.android\build-cache\582ae6397814422f94224ce9b17bb2bdb17647f9\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="21160c044ba984fb2e33b833c89a496becb85cfd">
+        <dex dex="C:\Users\Obi-Voin Kenobi\Desktop\Brown\app\build\intermediates\pre-dexed\debug\classes_c088f828b5c90bb37946beb16db702289dd2b340.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Obi-Voin Kenobi\.android\build-cache\3dc5e3058d627ab215531d0e06f200a9117890a0\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d695dc4247690369d66c022c6d18190155c61fcd">
+        <dex dex="C:\Users\Obi-Voin Kenobi\Desktop\Brown\app\build\intermediates\pre-dexed\debug\classes_f2923432633abb9af9af85d85c52dfe3e6ff010c.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Obi-Voin Kenobi\.android\build-cache\bb66f75c4832b1030b10b0cb3857c3d2c207f829\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4b70c5ad05857b8b3b2458777e1b489a96d82f05">
+        <dex dex="C:\Users\Obi-Voin Kenobi\Desktop\Brown\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_67c27bfafe6c1039a5996bda981a4a6c8dbe4738\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Obi-Voin Kenobi\.android\build-cache\6c9cb8d8b35f8dc326f5a10379f0dcd983ea73f7\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ec3360994c4007c282a4b651723603e82682b601">
+        <dex dex="C:\Users\Obi-Voin Kenobi\Desktop\Brown\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_0929fd9e4723fec1561012bf484a989b0e9ce98a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Obi-Voin Kenobi\.android\build-cache\3dc5e3058d627ab215531d0e06f200a9117890a0\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d695dc4247690369d66c022c6d18190155c61fcd">
+        <dex dex="C:\Users\Obi-Voin Kenobi\Desktop\Brown\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_f2923432633abb9af9af85d85c52dfe3e6ff010c\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Obi-Voin Kenobi\.android\build-cache\bb66f75c4832b1030b10b0cb3857c3d2c207f829\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4b70c5ad05857b8b3b2458777e1b489a96d82f05">
+        <dex dex="C:\Users\Obi-Voin Kenobi\Desktop\Brown\app\build\intermediates\pre-dexed\debug\classes_67c27bfafe6c1039a5996bda981a4a6c8dbe4738.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Obi-Voin Kenobi\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-tasks\1.4.0\d85884acf6810a3bbbecb587f239005cbc846dc4\bolts-tasks-1.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="C:\Users\Obi-Voin Kenobi\Desktop\Brown\app\build\intermediates\transforms\dex\debug\folders\1000\10\bolts-tasks-1.4.0_199d6ce504918df14c49a9dfec85b979b729ac41\classes.dex" />
     </item>
 
 </items>

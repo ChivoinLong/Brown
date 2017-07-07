@@ -39,8 +39,6 @@ public class ListStoreListAdp extends ArrayAdapter<ListStoreListModel> {
             listStoreListHolder.imgLocation = (ImageView) convertView.findViewById(R.id.imgLocationStoreList);
             listStoreListHolder.txtTitle = (TextView)convertView.findViewById(R.id.txtTitleStoreList);
             listStoreListHolder.txtRoad = (TextView)convertView.findViewById(R.id.txtRoadStoreList);
-            listStoreListHolder.txtPhone = (TextView)convertView.findViewById(R.id.txtPhoneStoreList);
-            listStoreListHolder.txtLink = (TextView)convertView.findViewById(R.id.txtLinkStoreList);
             convertView.setTag(listStoreListHolder);
 
         }
@@ -53,8 +51,10 @@ public class ListStoreListAdp extends ArrayAdapter<ListStoreListModel> {
         listStoreListHolder.imgLocation.setImageResource(listStoreListModel.getImage());
         listStoreListHolder.txtTitle.setText(listStoreListModel.getTitle());
         listStoreListHolder.txtRoad.setText(listStoreListModel.getRoad());
-        listStoreListHolder.txtPhone.setText(listStoreListModel.getPhone());
-        listStoreListHolder.txtLink.setText(listStoreListModel.getLink());
+//        Picasso.with(context)
+//                .load(listStoreListModel.getImage())
+//                .placeholder(R.drawable.progress)
+//                .into(listStoreListHolder.imgLocation);
 
         return convertView;
     }

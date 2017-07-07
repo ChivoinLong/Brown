@@ -4,6 +4,7 @@
     android:layout_height="wrap_content"
     android:background="@drawable/trasparent_black"
     android:padding="5dp"
+    android:layout_margin="5dp"
     android:weightSum="10">
 
 
@@ -13,7 +14,7 @@
         android:layout_height="match_parent"
         android:layout_weight="3"
         android:scaleType="centerCrop"
-        android:src="@drawable/caramel_latte" />
+        android:src="@drawable/iced_vanilla_latte" />
 
     <LinearLayout
         android:layout_width="0dp"
@@ -29,7 +30,7 @@
             android:layout_height="0dp"
             android:layout_weight="5"
             android:gravity="center_vertical"
-            android:text="Item Name"
+            android:text="Iced Vanilla Latte"
             android:textAllCaps="true"
             android:textColor="@color/colorAccent"
             android:textStyle="bold" />
@@ -38,7 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="5"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/trasparent_black"
             android:orientation="horizontal"
             android:weightSum="10">
 
@@ -46,8 +47,9 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
+                android:clickable="true"
                 android:scaleType="centerCrop"
-                android:src="@drawable/brown_51" />
+                android:src="@drawable/ic_left_arrow" />
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -61,7 +63,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="5"
                     android:gravity="center"
-                    android:text="Unit Price"
+                    android:text="$ 2.95"
                     android:textColor="@android:color/white" />
 
                 <TextView
@@ -69,16 +71,17 @@
                     android:layout_height="0dp"
                     android:layout_weight="5"
                     android:gravity="center"
-                    android:text="Quantity"
+                    android:text="1 Piece"
                     android:textColor="@android:color/white" />
             </LinearLayout>
 
             <com.thesis.brown.brown.SquareImageView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:clickable="true"
                 android:layout_weight="2"
                 android:scaleType="centerCrop"
-                android:src="@drawable/brown_51" />
+                android:src="@drawable/ic_right_arrow" />
         </LinearLayout>
 
     </LinearLayout>

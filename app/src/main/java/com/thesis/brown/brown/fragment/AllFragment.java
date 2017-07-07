@@ -117,22 +117,25 @@ public class AllFragment extends Fragment implements RecyclerItemOnClickListener
 
         MyVolley.cancelOldPandingRequest();
 
-        StringRequest stringRequest = new StringRequest(Request.Method.DEPRECATED_GET_OR_POST, url, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                // If we could get data, we pass to another method to be easy to see :D
-
-                prepareListData(response);
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                // If it has errors with Internet connection or web page
-                Toast.makeText(getActivity().getApplicationContext(), "No Internet Connection", Toast.LENGTH_SHORT).show();
-                progressBar.setVisibility(View.GONE);
-                btnRefresh.setVisibility(View.VISIBLE);
-            }
-        }) {
+        StringRequest stringRequest = new StringRequest(
+                Request.Method.DEPRECATED_GET_OR_POST,
+                url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        prepareListData(response);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(getActivity().getApplicationContext(), "No Internet Connection", Toast.LENGTH_SHORT).show();
+                        progressBar.setVisibility(View.GONE);
+                        btnRefresh.setVisibility(View.VISIBLE);
+                    }
+                }
+        )
+        {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
 
@@ -157,7 +160,6 @@ public class AllFragment extends Fragment implements RecyclerItemOnClickListener
                 return maps;
             }
         };
-
         MyVolley.getMyInstance().addToRequestQueue(stringRequest);
     }
 

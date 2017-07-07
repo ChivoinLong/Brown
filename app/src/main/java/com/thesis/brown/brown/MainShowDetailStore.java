@@ -3,13 +3,11 @@ package com.thesis.brown.brown;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 
 public class MainShowDetailStore extends AppCompatActivity {
@@ -40,6 +38,10 @@ public class MainShowDetailStore extends AppCompatActivity {
         String storeOpenTime = storeDataBundle.getString("time");
         int storeImage = storeDataBundle.getInt("storeImage");
 
+        setSupportActionBar((Toolbar) findViewById(R.id.toolbar2));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle(storeName);
+
         //location data
         storeLocationLatitude = storeDataBundle.getDouble("latitude");
         storeLocationLongitude = storeDataBundle.getDouble("longitude");
@@ -61,6 +63,14 @@ public class MainShowDetailStore extends AppCompatActivity {
 
 
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     //When ViewOnTheMap Button was Clicked

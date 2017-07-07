@@ -3,7 +3,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <include layout="@layout/item_cart" />
+    <include layout="@layout/item_cart"
+        android:id="@+id/include" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_tick"
+        android:layout_above="@+id/relativeLayout"
+        android:layout_alignRight="@+id/include"
+        android:layout_alignEnd="@+id/include"
+        android:layout_marginRight="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="17dp" />
 
     <!--<ListView-->
     <!--android:id="@+id/listview"-->
@@ -15,7 +28,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/colorPrimary">
+        android:background="@color/colorPrimary"
+        android:id="@+id/relativeLayout">
 
         <TextView
             android:layout_width="wrap_content"
@@ -32,7 +46,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:padding="10dp"
-            android:text="$00.00"
+            android:text="$2.95"
             android:textColor="@color/colorAccent"
             android:textSize="20sp" />
 

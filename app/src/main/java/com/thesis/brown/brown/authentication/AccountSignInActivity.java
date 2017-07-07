@@ -11,6 +11,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
@@ -21,14 +26,20 @@ import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.thesis.brown.brown.R;
+import com.thesis.brown.brown.my_support.MyVolley;
 
 import org.json.JSONObject;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.HashMap;
+import java.util.Map;
 
 public class AccountSignInActivity extends AppCompatActivity implements View.OnClickListener {
 
     LoginButton loginButton;
     CallbackManager callbackManager;
-    EditText etEmail, etPwd;
+    EditText etUser, etPwd;
     Button btnSignIn;
     TextView tvForgetPwd, tvSignUp;
 
@@ -42,7 +53,7 @@ public class AccountSignInActivity extends AppCompatActivity implements View.OnC
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Sign in");
 
-        etEmail = (EditText) findViewById(R.id.etEmail);
+        etUser = (EditText) findViewById(R.id.etEmail);
         etPwd = (EditText) findViewById(R.id.etPassword);
         tvForgetPwd = (TextView) findViewById(R.id.tvForgetPwd);
         tvSignUp = (TextView) findViewById(R.id.tvSignUp);
@@ -98,7 +109,62 @@ public class AccountSignInActivity extends AppCompatActivity implements View.OnC
             startActivity(new Intent(this, AccountSignUpActivity.class));
         } else if (v.getId() == R.id.tvForgetPwd) {
             startActivity(new Intent(this, AccountForgotPasswordActivity.class));
+        } else if (v.getId() == R.id.btnSignIn) {
+//            volleyPostUserData("https://brown-ordering-system.herokuapp.com/api/v1/users/login", );
         }
-        Toast.makeText(this, etEmail.getText().toString() + " " + etPwd.getText().toString(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, etUser.getText().toString() + " " + etPwd.getText().toString(), Toast.LENGTH_SHORT).show();
     }
+
+    private void volleyPostUserData(String url, final Map<String, String> params) {
+
+        MyVolley.cancelOldPandingRequest();
+
+        StringRequest stringRequest = new StringRequest(
+                Request.Method.DEPRECATED_GET_OR_POST,
+                url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        prepareData(response);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(getApplicationContext(), "No Internet Connection", Toast.LENGTH_SHORT).show();
+                    }
+                }
+        )
+        {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+
+                // Here is to Encoder your query string params because we cannot push special characters through URL
+
+                String key = "", value = "";
+                HashMap<String, String> maps = new HashMap<>();
+
+                for (Map.Entry<String, String> entry : params.entrySet()) {
+
+                    key = entry.getKey();
+
+                    try {
+                        value = URLEncoder.encode(entry.getValue(), "utf-8");
+                    } catch (UnsupportedEncodingException e) {
+                        e.printStackTrace();
+                    }
+
+                    maps.put(key, value);
+                }
+
+                return maps;
+            }
+        };
+        MyVolley.getMyInstance().addToRequestQueue(stringRequest);
+    }
+
+    private void prepareData(String response) {
+
+    }
+
 }

@@ -7,31 +7,30 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.thesis.brown.brown.model.Category;
 import com.thesis.brown.brown.my_support.DatabaseHandler;
 
 import java.util.ArrayList;
 
 public class CategoryListAdapter extends BaseAdapter {
 
-    static final int ROW = 0, CATEGORY = 1, SUBCATEGORY = 2;
-    ArrayList<Category> myCategory;
-    Context context;
-    LayoutInflater inflater;
+    static final int CATEGORY = 1, SUBCATEGORY = 2;
+    private ArrayList<com.thesis.brown.brown.model.Category> mCategories;
+    private Context context;
+    private LayoutInflater inflater;
 
-    public CategoryListAdapter(Context context, ArrayList<Category> myDB) {
+    public CategoryListAdapter(Context context, ArrayList<com.thesis.brown.brown.model.Category> categories) {
         this.context = context;
-        this.myCategory = myDB;
+        this.mCategories = categories;
     }
 
     @Override
     public int getCount() {
-        return myCategory.size();
+        return mCategories.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return myCategory.get(position);
+        return mCategories.get(position);
     }
 
     @Override
@@ -41,10 +40,10 @@ public class CategoryListAdapter extends BaseAdapter {
 
     @Override
     public int getItemViewType(int position) {
-        if (myCategory.get(position).getType().equals("category")) {
+//        if (mCategories.get(position).getType().equals("category")) {
             return CATEGORY;
-        }
-        return SUBCATEGORY;
+//        }
+//        return SUBCATEGORY;
     }
 
     @Override
@@ -60,27 +59,27 @@ public class CategoryListAdapter extends BaseAdapter {
             inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             switch (myType) {
                 case CATEGORY:
-                    convertView = inflater.inflate(R.layout.item_category_header, null);
+                    convertView = inflater.inflate(R.layout.list_item_category, null);
                     break;
                 case SUBCATEGORY:
-                    convertView = inflater.inflate(R.layout.item_category, null);
+                    convertView = inflater.inflate(R.layout.list_item_subcategory, null);
                     break;
             }
         }
 
-        String data = myCategory.get(position).getName();
+        String data = mCategories.get(position).getName();
 
         switch (myType) {
 
             case CATEGORY:
 
-                TextView txtHeader = (TextView) convertView.findViewById(R.id.txtHeaderCateHeader);
+                TextView txtHeader = (TextView) convertView.findViewById(R.id.itemName);
                 txtHeader.setText(data.toUpperCase());
                 break;
 
             default:
 
-                TextView txtInnerHeader = (TextView) convertView.findViewById(R.id.txtCategoryName);
+                TextView txtInnerHeader = (TextView) convertView.findViewById(R.id.itemName);
                 txtInnerHeader.setText(DatabaseHandler.toDisplayCase(data));
                 break;
         }

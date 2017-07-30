@@ -43,8 +43,8 @@ public class SubcategoryActivity extends AppCompatActivity {
 
         products = db.getAllProducts(getIntent().getStringExtra("CATEGORY_ID"));
         Log.d("123", "onResume: " + products.size());
-        RecyclerAdapter recyclerAdapter = new RecyclerAdapter(this, this.products, false);
-        recyclerView.setAdapter(recyclerAdapter);
+//        RecyclerAdapter recyclerAdapter = new RecyclerAdapter(this, this.products, false);
+//        recyclerView.setAdapter(recyclerAdapter);
         progressBar.setVisibility(View.GONE);
 
     }

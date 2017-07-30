@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         getSupportFragmentManager().beginTransaction().add(R.id.content_main, new MenuFragment()).commit();
 
-//        Intent intent = new Intent(this, MainFacebookLogin.class);
+//        Intent intent = new Intent(this, AccountVerifyActivity.class);
 //        startActivity(intent);
     }
 

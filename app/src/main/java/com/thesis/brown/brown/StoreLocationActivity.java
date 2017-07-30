@@ -1,18 +1,21 @@
 package com.thesis.brown.brown;
 
-import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class StoreLocationActivity extends FragmentActivity implements OnMapReadyCallback {
+public class StoreLocationActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
 
@@ -26,6 +29,11 @@ public class StoreLocationActivity extends FragmentActivity implements OnMapRead
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_store_location);
+
+        setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Map");
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -45,7 +53,10 @@ public class StoreLocationActivity extends FragmentActivity implements OnMapRead
             public void onClick(View v) {
                 if (mMap!=null){
                     LatLng latLnglocation = new LatLng(latitude, longitude);
-                    mMap.addMarker(new MarkerOptions().position(latLnglocation).title(storeName));
+                    mMap.addMarker(new MarkerOptions()
+                            .position(latLnglocation)
+                            .title(storeName)
+                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.cup_icon_map)));
                     float currentZoomLevel = mMap.getCameraPosition().zoom;
                     mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLnglocation,currentZoomLevel));
                 }
@@ -61,7 +72,19 @@ public class StoreLocationActivity extends FragmentActivity implements OnMapRead
 
         // Add a marker in Location and move the camera
         LatLng latLnglocation = new LatLng(latitude, longitude);
-        mMap.addMarker(new MarkerOptions().position(latLnglocation).title(storeName));
+        mMap.addMarker(new MarkerOptions()
+                .position(latLnglocation)
+                .title(storeName)
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.cup_icon_map)));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLnglocation,17));
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 }

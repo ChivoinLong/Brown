@@ -1,13 +1,14 @@
 package com.thesis.brown.brown.authentication;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +29,7 @@ import com.facebook.login.widget.LoginButton;
 import com.thesis.brown.brown.R;
 import com.thesis.brown.brown.my_support.MyVolley;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
@@ -37,11 +39,13 @@ import java.util.Map;
 
 public class AccountSignInActivity extends AppCompatActivity implements View.OnClickListener {
 
-    LoginButton loginButton;
-    CallbackManager callbackManager;
-    EditText etUser, etPwd;
-    Button btnSignIn;
-    TextView tvForgetPwd, tvSignUp;
+    private LoginButton loginButton;
+    private CallbackManager callbackManager;
+    private TextInputEditText etUser, etPwd;
+    private Button btnSignIn;
+    private TextView tvForgetPwd, tvSignUp;
+    private Map<String, String> userMap;
+    private ProgressDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,13 +57,19 @@ public class AccountSignInActivity extends AppCompatActivity implements View.OnC
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Sign in");
 
-        etUser = (EditText) findViewById(R.id.etEmail);
-        etPwd = (EditText) findViewById(R.id.etPassword);
+        etUser = (TextInputEditText) findViewById(R.id.etUser);
+        etPwd = (TextInputEditText) findViewById(R.id.etPassword);
         tvForgetPwd = (TextView) findViewById(R.id.tvForgetPwd);
         tvSignUp = (TextView) findViewById(R.id.tvSignUp);
         btnSignIn = (Button) findViewById(R.id.btnSignIn);
         callbackManager = CallbackManager.Factory.create();
         loginButton = (LoginButton) findViewById(R.id.login_button);
+
+        dialog = new ProgressDialog(this); // this = YourActivity
+        dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        dialog.setMessage("Loading...");
+        dialog.setIndeterminate(true);
+        dialog.setCanceledOnTouchOutside(false);
 
         btnSignIn.setOnClickListener(this);
         tvForgetPwd.setOnClickListener(this);
@@ -110,9 +120,20 @@ public class AccountSignInActivity extends AppCompatActivity implements View.OnC
         } else if (v.getId() == R.id.tvForgetPwd) {
             startActivity(new Intent(this, AccountForgotPasswordActivity.class));
         } else if (v.getId() == R.id.btnSignIn) {
-//            volleyPostUserData("https://brown-ordering-system.herokuapp.com/api/v1/users/login", );
+            userMap = new HashMap<>();
+            if (etUser.getText().toString().contains("@")) {
+                userMap.put("register_by", "email");
+                userMap.put("email", etUser.getText().toString());
+            }
+            else {
+                userMap.put("register_by", "phone");
+                userMap.put("phone", etUser.getText().toString());
+            }
+            userMap.put("password", etPwd.getText().toString());
+            volleyPostUserData("https://brown-ordering-system.herokuapp.com/api/v1/users/login", userMap);
+            dialog.show();
         }
-        Toast.makeText(this, etUser.getText().toString() + " " + etPwd.getText().toString(), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, etUser.getText().toString() + " " + etPwd.getText().toString(), Toast.LENGTH_SHORT).show();
     }
 
     private void volleyPostUserData(String url, final Map<String, String> params) {
@@ -163,8 +184,21 @@ public class AccountSignInActivity extends AppCompatActivity implements View.OnC
         MyVolley.getMyInstance().addToRequestQueue(stringRequest);
     }
 
-    private void prepareData(String response) {
-
+    private void prepareData(String json) {
+        JSONObject response = null;
+        try {
+            dialog.dismiss();
+            response = new JSONObject(json);
+            Toast.makeText(this, response.getString("message"), Toast.LENGTH_LONG).show();
+            if (response.getString("status").equals("200")) {
+//                Intent verify = new Intent(getActivity(), AccountVerifyActivity.class);
+//                verify.putExtra("register_by", "phone");
+//                verify.putExtra("phone", phone.getText().toString());
+//                startActivity(verify);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
 }

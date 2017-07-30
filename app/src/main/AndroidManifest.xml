@@ -18,15 +18,19 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".MainActivity" />
         <activity android:name=".MainShowDetailStore" />
         <activity android:name=".ProductDetailActivity" />
+        <activity android:name=".order.OrderActivity"
+            android:windowSoftInputMode="stateHidden"/>
         <activity android:name=".SubcategoryActivity" />
         <activity
             android:name=".authentication.AccountSignInActivity"
@@ -41,6 +45,7 @@
         <activity
             android:name=".authentication.AccountSignUpActivity"
             android:windowSoftInputMode="stateHidden" />
+        <activity android:name=".authentication.AccountVerifyActivity"/>
         <activity
             android:name=".authentication.AccountForgotPasswordActivity"
             android:windowSoftInputMode="stateHidden" />

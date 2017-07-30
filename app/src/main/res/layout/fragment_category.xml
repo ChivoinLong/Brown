@@ -5,12 +5,19 @@
     tools:context="com.thesis.brown.brown.fragment.CategoryFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <ListView
-        android:id="@+id/listview"
+    <!--<ListView-->
+        <!--android:id="@+id/listview"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:divider="@android:color/transparent"-->
+        <!--android:visibility="gone" />-->
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:divider="@android:color/transparent"
-        android:visibility="gone" />
+        android:clipToPadding="false"
+        android:padding="2dp" />
 
     <ProgressBar
         android:id="@+id/proLoadingMainCategory"
